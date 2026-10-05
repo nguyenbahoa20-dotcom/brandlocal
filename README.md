@@ -9,42 +9,34 @@ Website thương hiệu cá nhân **HOANET** (Chuyên gia Kỹ thuật CCTV & H�
 
 ---
 
-## 🛠️ 1. HƯỚNG DẪN CẤU HÌNH DECAP TURBO (BẮT BUỘC TRƯỚC KHI ĐĂNG NHẬP)
+## 🛠️ 1. CẤU HÌNH DECAP TURBO (ĐÃ HOÀN TẤT VỚI SITE ID CHÍNH THỨC)
 
-> ⚠️ **LƯU Ý QUAN TRỌNG:** Hệ thống xác thực **CHƯA THỂ HOẠT ĐỘNG NGAY** nếu bạn chưa thay thế `turbo_site_id` thật. Trong tệp cấu hình `public/admin/config.yml` và `admin/config.yml`, giá trị `turbo_site_id` hiện đang được để dưới dạng placeholder: `YOUR_DECAP_TURBO_SITE_ID_HERE`.
+Hệ thống quản trị Decap CMS đã được cấu hình với **Site ID chính thức**: `117f45be-465e-4bc8-bff6-907bbef559dd` trong cả hai tệp `public/admin/config.yml` và `admin/config.yml`:
 
-Để kích hoạt đăng nhập quản trị CMS, bạn thực hiện theo các bước chính thức sau:
+```yaml
+backend:
+  name: turbo-github
+  repo: nguyenbahoa20-dotcom/brandlocal
+  branch: main
+  turbo_site_id: 117f45be-465e-4bc8-bff6-907bbef559dd
+```
 
-### Bước 1: Đăng ký / Đăng nhập Decap Turbo
-1. Truy cập cổng dịch vụ Decap Turbo: [https://decapcms.org/turbo](https://decapcms.org/turbo) hoặc cổng quản lý Decap Turbo Portal.
-2. Đăng nhập bằng tài khoản GitHub sở hữu repository `nguyenbahoa20-dotcom/brandlocal`.
-
-### Bước 2: Tạo Site mới và Cài đặt GitHub App (Phạm vi tối thiểu - Least Privilege)
-1. Trong dashboard của Decap Turbo, bấm **Add New Site** (Tạo trang mới).
-2. Khi được yêu cầu cài đặt GitHub App, hãy chọn phạm vi cấp quyền **chỉ cho duy nhất một repository (Only select repositories)**:
+### Các bước thiết lập Decap Turbo phía GitHub:
+1. Đăng nhập Decap Turbo Portal: [https://decapcms.org/turbo](https://decapcms.org/turbo).
+2. Khi cài đặt GitHub App, chọn phạm vi cấp quyền **chỉ cho duy nhất một repository (Only select repositories)**:
    * **Repository**: `nguyenbahoa20-dotcom/brandlocal`
    * *Không chọn "All repositories" để đảm bảo nguyên tắc bảo mật an toàn nhất cho tài khoản GitHub của bạn.*
-3. Điền thông tin cấu hình:
+3. Thông tin kết nối:
    * **Repository**: `nguyenbahoa20-dotcom/brandlocal`
    * **Production Branch**: `main`
-
-### Bước 3: Lấy Site ID và cập nhật vào mã nguồn
-1. Sau khi tạo site thành công, Decap Turbo sẽ cung cấp cho bạn một chuỗi **Site ID** (dạng mã UUID, ví dụ: `dcb8a3f1-xxxx-xxxx-xxxx-xxxxxxxxxxxx`).
-2. Mở tệp `public/admin/config.yml` (và `admin/config.yml` trong mã nguồn):
-   ```yaml
-   backend:
-     name: turbo-github
-     repo: nguyenbahoa20-dotcom/brandlocal
-     branch: main
-     turbo_site_id: dcb8a3f1-xxxx-xxxx-xxxx-xxxxxxxxxxxx # 👉 Dán Site ID của bạn vào đây
-   ```
-3. Lưu tệp và commit lên GitHub nhánh `main`.
+   * **Site ID**: `117f45be-465e-4bc8-bff6-907bbef559dd`
 
 ---
 
 ## 🚀 2. CÁCH TRUY CẬP VÀ SỬ DỤNG DECAP CMS
 
-1. Truy cập đường dẫn: **`https://tên-miền-của-bạn/admin/`** (hoặc bấm nút **CMS** ở góc phải Header / chân trang Footer).
+1. Truy cập đường dẫn điểm vào CMS: **`https://tên-miền-của-bạn/admin/index.html`** (hoặc bấm nút **CMS** ở góc phải Header / chân trang Footer).
+   * *Lưu ý: Luôn truy cập qua `/admin/index.html` để nạp trực tiếp giao diện Decap CMS, tránh bị SPA router của website chuyển hướng.*
 2. Bấm nút **Login with GitHub** để đăng nhập qua tài khoản GitHub đã được phân quyền quản trị repo.
 3. Trong giao diện CMS:
    * Chọn mục **Dự Án Công Trình** -> **Danh Sách Dự Án Công Trình**.

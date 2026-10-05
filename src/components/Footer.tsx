@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
                 <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Liên hệ khảo sát</a></li>
                 <li>
                   <a
-                    href="/admin/"
+                    href="/admin/index.html"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-cyan-400/90 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px] pt-1"
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
               <span>&copy; {new Date().getFullYear()} {profile.name} ({profile.brandName}). Bản quyền thuộc về tác giả.</span>
               <span className="text-slate-700 hidden sm:inline">·</span>
               <a
-                href="/admin/"
+                href="/admin/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"

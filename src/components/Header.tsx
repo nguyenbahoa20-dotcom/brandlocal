@@ -87,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           {/* Zone 3: Primary Actions (Desktop) */}
           <div className="hidden sm:flex items-center gap-2.5">
             <a
-              href="/admin/"
+              href="/admin/index.html"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 hover:text-white transition-colors border border-slate-800 rounded-lg bg-slate-900/60 hover:bg-slate-800 cursor-pointer"
@@ -156,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
           <div className="pt-2 border-t border-slate-800/80 space-y-2">
             <a
-              href="/admin/"
+              href="/admin/index.html"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
