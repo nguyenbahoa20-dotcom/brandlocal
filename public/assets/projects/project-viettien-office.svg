@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="vt-bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#080F1D"/>
+      <stop offset="0.5" stop-color="#0E192D"/>
+      <stop offset="1" stop-color="#070C16"/>
+    </linearGradient>
+
+    <linearGradient id="glass-reflect" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.25"/>
+      <stop offset="40%" stop-color="#06B6D4" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <linearGradient id="neon-cyan" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06B6D4"/>
+      <stop offset="0.5" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+
+    <radialGradient id="glow-badge" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#vt-bg)"/>
+
+  <!-- Tech Perspective Grid Floor -->
+  <g opacity="0.18">
+    <path d="M0 460 L800 460 M0 490 L800 490 M0 530 L800 530 M0 580 L800 580" stroke="#38BDF8" stroke-width="1"/>
+    <path d="M100 600 L250 460 M250 600 L350 460 M400 600 L400 460 M550 600 L450 460 M700 600 L550 460" stroke="#38BDF8" stroke-width="1"/>
+  </g>
+
+  <!-- Background Ambient Glow -->
+  <circle cx="400" cy="260" r="220" fill="url(#glow-badge)"/>
+
+  <!-- Modern Office Building (Tòa nhà Văn phòng Việt Tiến 97 Đức Giang) -->
+  <g>
+    <!-- Main Tower Structure -->
+    <rect x="220" y="100" width="360" height="360" rx="4" fill="#0C1527" stroke="#1E293B" stroke-width="2"/>
+    
+    <!-- Building Glass Curtain Walls -->
+    <rect x="240" y="130" width="320" height="310" rx="2" fill="url(#glass-reflect)" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1.5"/>
+
+    <!-- Horizontal Floor Dividers (8 floors) -->
+    <line x1="240" y1="170" x2="560" y2="170" stroke="#1E293B" stroke-width="2"/>
+    <line x1="240" y1="210" x2="560" y2="210" stroke="#1E293B" stroke-width="2"/>
+    <line x1="240" y1="250" x2="560" y2="250" stroke="#1E293B" stroke-width="2"/>
+    <line x1="240" y1="290" x2="560" y2="290" stroke="#1E293B" stroke-width="2"/>
+    <line x1="240" y1="330" x2="560" y2="330" stroke="#1E293B" stroke-width="2"/>
+    <line x1="240" y1="370" x2="560" y2="370" stroke="#1E293B" stroke-width="2"/>
+    <line x1="240" y1="410" x2="560" y2="410" stroke="#1E293B" stroke-width="2"/>
+
+    <!-- Vertical Mullions -->
+    <line x1="300" y1="130" x2="300" y2="440" stroke="#0F172A" stroke-width="1.5"/>
+    <line x1="360" y1="130" x2="360" y2="440" stroke="#0F172A" stroke-width="1.5"/>
+    <line x1="420" y1="130" x2="420" y2="440" stroke="#0F172A" stroke-width="1.5"/>
+    <line x1="480" y1="130" x2="480" y2="440" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- Illuminated Windows (Selected Active Office Offices) -->
+    <rect x="250" y="140" width="40" height="22" rx="1" fill="#38BDF8" fill-opacity="0.35"/>
+    <rect x="370" y="180" width="40" height="22" rx="1" fill="#06B6D4" fill-opacity="0.3"/>
+    <rect x="430" y="220" width="40" height="22" rx="1" fill="#38BDF8" fill-opacity="0.4"/>
+    <rect x="310" y="260" width="40" height="22" rx="1" fill="#38BDF8" fill-opacity="0.25"/>
+    <rect x="490" y="300" width="40" height="22" rx="1" fill="#10B981" fill-opacity="0.35"/>
+    <rect x="250" y="340" width="40" height="22" rx="1" fill="#38BDF8" fill-opacity="0.3"/>
+    <rect x="370" y="380" width="40" height="22" rx="1" fill="#06B6D4" fill-opacity="0.4"/>
+
+    <!-- Rooftop Tech Canopy & Telecom Antennas -->
+    <rect x="260" y="80" width="280" height="20" rx="3" fill="#111C33" stroke="#334155" stroke-width="1.5"/>
+    <line x1="320" y1="80" x2="320" y2="50" stroke="#06B6D4" stroke-width="2"/>
+    <circle cx="320" cy="48" r="3" fill="#06B6D4"/>
+    <line x1="480" y1="80" x2="480" y2="40" stroke="#38BDF8" stroke-width="2.5"/>
+    <circle cx="480" cy="38" r="4" fill="#38BDF8" filter="url(#glow-blur)"/>
+
+    <!-- Entrance Canopy (Tầng trệt & Sảnh đón) -->
+    <path d="M280 460 L260 490 L540 490 L520 460 Z" fill="#0E192D" stroke="#06B6D4" stroke-width="1.5"/>
+    <rect x="360" y="440" width="80" height="50" rx="2" fill="#0284C7" fill-opacity="0.2" stroke="#38BDF8" stroke-width="1"/>
+  </g>
+
+  <!-- Network & CCTV Telemetry Overlays -->
+  <!-- Left Side: Server Rack & Network Hub Overlay Card -->
+  <g transform="translate(60, 240)">
+    <rect width="180" height="150" rx="10" fill="#0A101D" fill-opacity="0.9" stroke="#06B6D4" stroke-width="1.5"/>
+    <rect x="12" y="12" width="24" height="24" rx="6" fill="#06B6D4" fill-opacity="0.15"/>
+    <path d="M16 24 L24 16 L32 24" stroke="#06B6D4" stroke-width="1.5" fill="none"/>
+    <text x="44" y="24" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">TỦ RACK NETWORK</text>
+    <text x="44" y="36" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="9">Cáp Cat6 Gigabit PoE+</text>
+
+    <!-- Mini Server Slots -->
+    <rect x="12" y="46" width="156" height="18" rx="3" fill="#111B2E" stroke="#1E293B" stroke-width="1"/>
+    <circle cx="22" cy="55" r="2.5" fill="#10B981"/>
+    <circle cx="30" cy="55" r="2.5" fill="#10B981"/>
+    <line x1="42" y1="55" x2="155" y2="55" stroke="#334155" stroke-width="1" stroke-dasharray="2 3"/>
+
+    <rect x="12" y="70" width="156" height="18" rx="3" fill="#111B2E" stroke="#1E293B" stroke-width="1"/>
+    <circle cx="22" cy="79" r="2.5" fill="#06B6D4"/>
+    <circle cx="30" cy="79" r="2.5" fill="#38BDF8"/>
+    <line x1="42" y1="79" x2="155" y2="79" stroke="#334155" stroke-width="1" stroke-dasharray="2 3"/>
+
+    <rect x="12" y="94" width="156" height="18" rx="3" fill="#111B2E" stroke="#1E293B" stroke-width="1"/>
+    <circle cx="22" cy="103" r="2.5" fill="#10B981"/>
+    <circle cx="30" cy="103" r="2.5" fill="#10B981"/>
+    <line x1="42" y1="103" x2="155" y2="103" stroke="#334155" stroke-width="1" stroke-dasharray="2 3"/>
+
+    <text x="12" y="132" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">● Uptime: 99.99% · 1000Mbps</text>
+  </g>
+
+  <!-- Right Side: Security CCTV Surveillance Overlay Card -->
+  <g transform="translate(560, 240)">
+    <rect width="180" height="150" rx="10" fill="#0A101D" fill-opacity="0.9" stroke="#3B82F6" stroke-width="1.5"/>
+    <rect x="12" y="12" width="24" height="24" rx="6" fill="#3B82F6" fill-opacity="0.15"/>
+    <!-- Camera Icon -->
+    <path d="M18 20 L24 20 L26 17 L30 17 L32 20 L34 20 C35 20 36 21 36 22 L36 28 C36 29 35 30 34 30 L18 30 C17 30 16 29 16 28 L16 22 C16 21 17 20 18 20 Z" stroke="#38BDF8" stroke-width="1.2" fill="none"/>
+    <circle cx="26" cy="25" r="3" stroke="#38BDF8" stroke-width="1" fill="none"/>
+    <text x="44" y="24" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">GIÁM SÁT AN NINH</text>
+    <text x="44" y="36" fill="#10B981" font-family="system-ui, sans-serif" font-size="9">● 32 Camera IP 4K LIVE</text>
+
+    <!-- Camera Feeds Grid Representation -->
+    <g transform="translate(12, 46)">
+      <rect width="74" height="42" rx="3" fill="#0B132B" stroke="#1E293B" stroke-width="1"/>
+      <text x="6" y="12" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="7">CAM 01 - SẢNH</text>
+      <circle cx="68" cy="10" r="2" fill="#10B981"/>
+
+      <rect x="82" width="74" height="42" rx="3" fill="#0B132B" stroke="#1E293B" stroke-width="1"/>
+      <text x="88" y="12" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="7">CAM 02 - HẦM XE</text>
+      <circle cx="150" cy="10" r="2" fill="#10B981"/>
+
+      <rect y="46" width="74" height="42" rx="3" fill="#0B132B" stroke="#1E293B" stroke-width="1"/>
+      <text x="6" y="58" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="7">CAM 03 - TẦNG 3</text>
+      <circle cx="68" cy="56" r="2" fill="#10B981"/>
+
+      <rect x="82" y="46" width="74" height="42" rx="3" fill="#0B132B" stroke="#1E293B" stroke-width="1"/>
+      <text x="88" y="58" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="7">CAM 04 - PHÒNG IT</text>
+      <circle cx="150" cy="56" r="2" fill="#10B981"/>
+    </g>
+
+    <text x="12" y="142" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="8">Lưu trữ NVR RAID · AI Phát hiện người</text>
+  </g>
+
+  <!-- Project Header Banner Bar (Bottom) -->
+  <g transform="translate(100, 500)">
+    <rect width="600" height="74" rx="12" fill="#0A1120" stroke="#1E293B" stroke-width="1.5"/>
+    <rect x="1" y="1" width="598" height="3" fill="url(#neon-cyan)"/>
+    
+    <!-- Location Pin Icon -->
+    <circle cx="36" cy="37" r="16" fill="#06B6D4" fill-opacity="0.15"/>
+    <path d="M36 28 C32.7 28 30 30.7 30 34 C30 38.5 36 45 36 45 C36 45 42 38.5 42 34 C42 30.7 39.3 28 36 28 Z" fill="#06B6D4"/>
+    <circle cx="36" cy="34" r="2" fill="#080F1D"/>
+
+    <text x="64" y="31" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.3">
+      TÒA NHÀ VĂN PHÒNG VIỆT TIẾN - HÀ NỘI
+    </text>
+    <text x="64" y="49" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">
+      Địa chỉ: 97 Đức Giang, Long Biên, Hà Nội · Hệ Thống Mạng Doanh Nghiệp &amp; Camera 4K
+    </text>
+    
+    <!-- Status Tag -->
+    <rect x="480" y="24" width="98" height="26" rx="6" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.5" stroke-width="1"/>
+    <circle cx="494" cy="37" r="3" fill="#10B981"/>
+    <text x="504" y="41" fill="#34D399" font-family="system-ui, sans-serif" font-size="10" font-weight="600">ĐÃ BÀN GIAO</text>
+  </g>
+
+  <!-- Laser / Signal Line Connectors -->
+  <path d="M240 315 L280 250 M560 315 L520 250" stroke="#06B6D4" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.6"/>
+</svg>

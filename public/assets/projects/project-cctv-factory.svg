@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="p2-bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B132B"/>
+      <stop offset="1" stop-color="#030712"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#p2-bg)"/>
+  <!-- Multi-camera Grid Layout -->
+  <rect x="60" y="70" width="320" height="200" rx="8" fill="#111827" stroke="#1F2937" stroke-width="2"/>
+  <rect x="420" y="70" width="320" height="200" rx="8" fill="#111827" stroke="#1F2937" stroke-width="2"/>
+  <rect x="60" y="300" width="320" height="200" rx="8" fill="#111827" stroke="#1F2937" stroke-width="2"/>
+  <rect x="420" y="300" width="320" height="200" rx="8" fill="#111827" stroke="#1F2937" stroke-width="2"/>
+
+  <!-- Camera 1: Perimeter AI Line Detection -->
+  <path d="M90 220L280 150L350 240" stroke="#EF4444" stroke-width="2" stroke-dasharray="6 4"/>
+  <rect x="180" y="130" width="60" height="70" stroke="#06B6D4" stroke-width="1.5" fill="#06B6D4" fill-opacity="0.1"/>
+  <text x="80" y="100" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="11">CAM 01 · CỔNG CHÍNH [AI TRÍPWIRE]</text>
+
+  <!-- Camera 2: Production Floor -->
+  <line x1="440" y1="210" x2="720" y2="210" stroke="#334155" stroke-width="2"/>
+  <circle cx="580" cy="180" r="14" fill="#3B82F6" fill-opacity="0.3"/>
+  <text x="440" y="100" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="11">CAM 02 · XƯỞNG SẢN XUẤT 01 [COLORVU]</text>
+
+  <!-- Camera 3: Warehouse Racks -->
+  <rect x="90" y="340" width="30" height="130" fill="#1E293B"/>
+  <rect x="150" y="340" width="30" height="130" fill="#1E293B"/>
+  <rect x="210" y="340" width="30" height="130" fill="#1E293B"/>
+  <text x="80" y="330" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="11">CAM 03 · KHO NGUYÊN LIỆU [PTZ AUTO-TRACK]</text>
+
+  <!-- Camera 4: Loading Dock & ANPR -->
+  <rect x="460" y="370" width="120" height="70" rx="6" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5"/>
+  <rect x="480" y="415" width="80" height="16" rx="2" fill="#FEF08A"/>
+  <text x="520" y="427" fill="#000000" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">60C-889.92</text>
+  <text x="440" y="330" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="11">CAM 04 · XUẤT NHẬP HÀNG [NHẬN DIỆN BIỂN SỐ]</text>
+
+  <!-- Control room watermark -->
+  <rect x="300" y="525" width="200" height="36" rx="6" fill="#0A0F1D" stroke="#06B6D4" stroke-width="1"/>
+  <text x="400" y="548" fill="#38BDF8" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">
+    64 KÊNH NVR HIKVISION 4K
+  </text>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "Personal Brand & Technical Portfolio",
+  "description": "Website thương hiệu cá nhân và giải pháp kỹ thuật CCTV & Hạ tầng mạng chuyên nghiệp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
