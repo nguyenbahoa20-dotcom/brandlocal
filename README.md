@@ -11,7 +11,7 @@ Website thương hiệu cá nhân **HOANET** (Chuyên gia Kỹ thuật CCTV & H�
 
 ## 🛠️ 1. HƯỚNG DẪN CẤU HÌNH DECAP TURBO (BẮT BUỘC TRƯỚC KHI ĐĂNG NHẬP)
 
-> ⚠️ **LƯU Ý QUAN TRỌNG:** Hệ thống xác thực **CHƯA THỂ HOẠT ĐỘNG NGAY** nếu bạn chưa thay thế `Site ID` thật. Trong tệp cấu hình `public/admin/config.yml` và `admin/config.yml`, giá trị `site_id` hiện đang được để dưới dạng placeholder: `YOUR_DECAP_TURBO_SITE_ID_HERE`.
+> ⚠️ **LƯU Ý QUAN TRỌNG:** Hệ thống xác thực **CHƯA THỂ HOẠT ĐỘNG NGAY** nếu bạn chưa thay thế `turbo_site_id` thật. Trong tệp cấu hình `public/admin/config.yml` và `admin/config.yml`, giá trị `turbo_site_id` hiện đang được để dưới dạng placeholder: `YOUR_DECAP_TURBO_SITE_ID_HERE`.
 
 Để kích hoạt đăng nhập quản trị CMS, bạn thực hiện theo các bước chính thức sau:
 
@@ -36,7 +36,7 @@ Website thương hiệu cá nhân **HOANET** (Chuyên gia Kỹ thuật CCTV & H�
      name: turbo-github
      repo: nguyenbahoa20-dotcom/brandlocal
      branch: main
-     site_id: dcb8a3f1-xxxx-xxxx-xxxx-xxxxxxxxxxxx # 👉 Dán Site ID của bạn vào đây
+     turbo_site_id: dcb8a3f1-xxxx-xxxx-xxxx-xxxxxxxxxxxx # 👉 Dán Site ID của bạn vào đây
    ```
 3. Lưu tệp và commit lên GitHub nhánh `main`.
 

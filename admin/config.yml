@@ -2,7 +2,7 @@ backend:
   name: turbo-github
   repo: nguyenbahoa20-dotcom/brandlocal
   branch: main
-  site_id: YOUR_DECAP_TURBO_SITE_ID_HERE # Thay bằng Site ID thật khi tạo site trên Decap Turbo Dashboard
+  turbo_site_id: YOUR_DECAP_TURBO_SITE_ID_HERE # Thay bằng Site ID thật khi tạo site trên Decap Turbo Dashboard
 
 media_folder: "public/assets/projects"
 public_folder: "/assets/projects"
