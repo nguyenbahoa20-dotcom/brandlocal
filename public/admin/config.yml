@@ -40,10 +40,10 @@ collections:
               - label: "Công nghệ & Thiết bị sử dụng"
                 name: "technologies"
                 widget: "list"
-                field: { label: "Tên thiết bị / Công nghệ", widget: "string" }
+                field: { label: "Tên thiết bị / Công nghệ", name: "technology", widget: "string" }
               - label: "Điểm nổi bật của hệ thống"
                 name: "highlights"
                 widget: "list"
                 required: false
-                field: { label: "Điểm nổi bật", widget: "string" }
+                field: { label: "Điểm nổi bật", name: "highlight", widget: "string" }
               - { label: "Đánh dấu là Dự án nổi bật (Featured)", name: "isFeatured", widget: "boolean", default: false, required: false }

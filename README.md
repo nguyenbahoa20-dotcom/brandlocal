@@ -21,6 +21,8 @@ backend:
   turbo_site_id: 117f45be-465e-4bc8-bff6-907bbef559dd
 ```
 
+> 💡 **Phân phối Decap CMS Beta (`decap-cms@beta`):** Tệp `public/admin/index.html` được cấu hình sử dụng gói `decap-cms@beta` chính thức từ unpkg để kích hoạt backend `turbo-github`. Backend này hiện được Decap CMS cung cấp trong kênh beta.
+
 ### Các bước thiết lập Decap Turbo phía GitHub:
 1. Đăng nhập Decap Turbo Portal: [https://decapcms.org/turbo](https://decapcms.org/turbo).
 2. Khi cài đặt GitHub App, chọn phạm vi cấp quyền **chỉ cho duy nhất một repository (Only select repositories)**:
