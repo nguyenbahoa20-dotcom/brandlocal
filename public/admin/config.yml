@@ -1,0 +1,49 @@
+backend:
+  name: turbo-github
+  repo: nguyenbahoa20-dotcom/brandlocal
+  branch: main
+  site_id: YOUR_DECAP_TURBO_SITE_ID_HERE # Thay bằng Site ID thật khi tạo site trên Decap Turbo Dashboard
+
+media_folder: "public/assets/projects"
+public_folder: "/assets/projects"
+
+# Giao diện tiếng Việt & thông tin hiển thị
+locale: "vi"
+
+collections:
+  - name: "projects"
+    label: "Quản Lý Dự Án"
+    files:
+      - file: "public/content/projects.json"
+        label: "Danh Sách Dự Án Công Trình"
+        name: "projects_list"
+        fields:
+          - label: "Danh sách công trình"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.category}} - {{fields.completionDate}})"
+            fields:
+              - { label: "Mã định danh (ID)", name: "id", widget: "string", hint: "Mã duy nhất viết liền, VD: prj-viettien-hanoi" }
+              - { label: "Tên công trình", name: "title", widget: "string" }
+              - { label: "Danh mục", name: "category", widget: "select", options: ["Doanh Nghiệp & Văn Phòng", "Nhà Xưởng & Kho Bãi", "Biệt Thự & Nhà Phố", "Chuỗi Bán Lẻ & F&B"] }
+              - { label: "Ảnh đại diện chính", name: "image", widget: "image", required: false, hint: "Ảnh bìa hiển thị ngoài danh sách" }
+              - label: "Album hình ảnh thực tế"
+                name: "images"
+                widget: "list"
+                field: { label: "Tệp ảnh", name: "image", widget: "image" }
+              - { label: "Quy mô", name: "scale", widget: "string", required: false, hint: "VD: Tòa nhà 8 tầng · 32 Camera IP 4K · Hệ thống WiFi Doanh Nghiệp" }
+              - { label: "Thời gian hoàn thành", name: "completionDate", widget: "string", required: false, hint: "VD: Tháng 03/2024" }
+              - { label: "Năm hoàn thành", name: "year", widget: "string", required: false, hint: "VD: 2024" }
+              - { label: "Địa điểm công trình", name: "location", widget: "string", hint: "VD: 97 Đức Giang, Long Biên, Hà Nội" }
+              - { label: "Khách hàng / Chủ đầu tư", name: "client", widget: "string", required: false, hint: "VD: Tổng Công Ty CP May Việt Tiến" }
+              - { label: "Mô tả giải pháp", name: "description", widget: "text" }
+              - label: "Công nghệ & Thiết bị sử dụng"
+                name: "technologies"
+                widget: "list"
+                field: { label: "Tên thiết bị / Công nghệ", widget: "string" }
+              - label: "Điểm nổi bật của hệ thống"
+                name: "highlights"
+                widget: "list"
+                required: false
+                field: { label: "Điểm nổi bật", widget: "string" }
+              - { label: "Đánh dấu là Dự án nổi bật (Featured)", name: "isFeatured", widget: "boolean", default: false, required: false }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ArrowUpRight, Plus } from 'lucide-react';
+import { Phone, Menu, X, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { profile } from '../config/profile';
 import { Logo } from './Logo';
 
@@ -86,15 +86,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
           {/* Zone 3: Primary Actions (Desktop) */}
           <div className="hidden sm:flex items-center gap-2.5">
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent('open-admin-project-modal'))}
-              type="button"
+            <a
+              href="/admin/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-slate-300 hover:text-white transition-colors border border-slate-800 rounded-lg bg-slate-900/60 hover:bg-slate-800 cursor-pointer"
-              title="Quản trị & Thêm công trình mới"
+              title="Truy cập Decap CMS quản trị dự án"
             >
-              <Plus className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Quản Trị</span>
-            </button>
+              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
+              <span>CMS</span>
+            </a>
 
             <a
               href={`tel:${profile.contact.phone}`}
@@ -154,17 +155,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           </div>
 
           <div className="pt-2 border-t border-slate-800/80 space-y-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                window.dispatchEvent(new CustomEvent('open-admin-project-modal'));
-              }}
-              type="button"
+            <a
+              href="/admin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-cyan-300 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/40 rounded-lg transition-colors cursor-pointer"
             >
-              <Plus className="w-4 h-4 text-cyan-400" />
-              <span>+ Thêm Công Trình / Quản Trị</span>
-            </button>
+              <ExternalLink className="w-4 h-4 text-cyan-400" />
+              <span>Vào Bảng Quản Trị Decap CMS</span>
+            </a>
 
             <button
               onClick={() => {

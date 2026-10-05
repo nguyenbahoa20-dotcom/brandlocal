@@ -1,0 +1,176 @@
+{
+  "projects": [
+    {
+      "id": "prj-viettien-hanoi",
+      "title": "Hạ Tầng Mạng & Camera Tòa Nhà Văn Phòng Việt Tiến 97 Đức Giang",
+      "category": "Doanh Nghiệp & Văn Phòng",
+      "image": "/assets/projects/project-viettien-office.svg",
+      "images": [
+        "/assets/projects/project-viettien-office.svg",
+        "/assets/projects/project-server-rack.svg",
+        "/assets/projects/project-enterprise-network.svg"
+      ],
+      "scale": "Tòa Nhà Văn Phòng Hiện Đại · 32 Camera IP 4K · Hệ Thống WiFi Doanh Nghiệp Chịu Tải Cao",
+      "completionDate": "Tháng 03/2024",
+      "year": "2024",
+      "location": "97 Đức Giang, Long Biên, Hà Nội",
+      "client": "Tổng Công Ty CP May Việt Tiến (Chi Nhánh Văn Phòng Hà Nội)",
+      "description": "Tư vấn giải pháp, thiết kế sơ đồ kỹ thuật và thi công trọn gói hệ thống hạ tầng mạng LAN/WiFi văn phòng cùng hệ thống camera an ninh giám sát IP độ phân giải cao tại tòa nhà văn phòng Việt Tiến (97 Đức Giang, Long Biên, Hà Nội). Quy hoạch tủ mạng trung tâm chuẩn Rack, đi dây âm thẩm mỹ và cấu hình bảo mật đa tầng.",
+      "technologies": [
+        "Hikvision IP ColorVu 4K",
+        "MikroTik CCR Gigabit",
+        "Switch Cisco PoE 48 Port",
+        "Ruijie WiFi 6 Enterprise",
+        "Tủ Rack 27U & Thanh PDU"
+      ],
+      "highlights": [
+        "Phủ sóng WiFi 6 toàn diện các tầng văn phòng, đảm bảo đường truyền họp trực tuyến & hội nghị video mượt mà",
+        "Hệ thống 32 camera IP sắc nét bao quát sảnh lễ tân, khu vực văn phòng mở, hành lang, phòng máy chủ và bãi đỗ xe",
+        "Quy hoạch tủ Rack mạng tiêu chuẩn với patch panel và đánh số port chi tiết, thuận tiện cho việc vận hành và nâng cấp"
+      ],
+      "isFeatured": true
+    },
+    {
+      "id": "prj-tech-corp",
+      "title": "Hạ Tầng Mạng 10Gbps & Camera AI Trụ Sở TechCorp",
+      "category": "Doanh Nghiệp & Văn Phòng",
+      "image": "/assets/projects/project-enterprise-network.svg",
+      "images": [
+        "/assets/projects/project-enterprise-network.svg",
+        "/assets/projects/project-server-rack.svg",
+        "/assets/projects/project-viettien-office.svg"
+      ],
+      "scale": "5 Tầng lầu · 350 Nhân sự · 40 Camera AI · 18 Access Point WiFi 6",
+      "completionDate": "Tháng 01/2024",
+      "year": "2024",
+      "location": "Khu Công Nghệ Cao, TP. Thủ Đức, TP.HCM",
+      "client": "Tập Đoàn Công Nghệ TechCorp",
+      "description": "Thiết kế trọn gói từ bản vẽ đến thi công hạ tầng mạng trục cáp quang 10Gbps, hệ thống camera AI nhận diện khuôn mặt điểm danh nhân sự và phủ sóng WiFi 6 roaming không góc chết cho 350 kỹ sư phần mềm làm việc liên tục.",
+      "technologies": [
+        "MikroTik CCR2004",
+        "Cisco Catalyst 48P",
+        "Aruba AP22",
+        "Hikvision 4K AcuSense",
+        "Cáp quang OM3"
+      ],
+      "highlights": [
+        "Băng thông 10Gbps giữa các tầng lầu không bao giờ xảy ra nghẽn cổ chai",
+        "Cân bằng tải 3 đường cáp quang VNPT, Viettel, FPT tự động chuyển tuyến khi đứt cáp quang biển",
+        "Tách biệt hoàn toàn VLAN Kỹ thuật, Hành chính, Khách và Camera an ninh"
+      ],
+      "isFeatured": true
+    },
+    {
+      "id": "prj-factory-cctv",
+      "title": "Hệ Thống 64 Camera 4K AI Cho Cụm Nhà Xưởng Sản Xuất 20.000m²",
+      "category": "Nhà Xưởng & Kho Bãi",
+      "image": "/assets/projects/project-cctv-factory.svg",
+      "images": [
+        "/assets/projects/project-cctv-factory.svg",
+        "/assets/projects/project-server-rack.svg"
+      ],
+      "scale": "Diện tích 20.000m² · 64 Camera Full-color · 4 Đầu ghi NVR RAID 5",
+      "completionDate": "Tháng 11/2023",
+      "year": "2023",
+      "location": "Khu Công Nghiệp VSIP II, Tỉnh Bình Dương",
+      "client": "Công Ty TNHH Sản Xuất Bao Bì Đại Á",
+      "description": "Triển khai mạng lưới camera giám sát chuyên dụng môi trường công nghiệp bụi bặm và nhiệt độ cao. Tích hợp AI phát hiện người không đội mũ bảo hộ lao động và cảnh báo xâm nhập khu vực máy dập nguy hiểm.",
+      "technologies": [
+        "Hikvision ColorVu 4K",
+        "PTZ Zoom Quang 32X",
+        "Switch Công Nghiệp PoE+",
+        "Hệ Thống Lưu Trữ RAID 5"
+      ],
+      "highlights": [
+        "Quan sát có màu sắc nét ban đêm như ban ngày tại toàn bộ các phân xưởng",
+        "Camera PTZ tự động bám theo đối tượng (Smart Tracking) khi phát hiện người đi vào khu vực cấm",
+        "Hệ thống lưu trữ 45 ngày liên tục với cơ chế bảo vệ dữ liệu RAID 5 an toàn"
+      ],
+      "isFeatured": true
+    },
+    {
+      "id": "prj-luxury-villa",
+      "title": "Hạ Tầng Mạng Ẩn Tường & Camera Tàng Hình Biệt Thự Chateau",
+      "category": "Biệt Thự & Nhà Phố",
+      "image": "/assets/projects/project-smart-villa.svg",
+      "images": [
+        "/assets/projects/project-smart-villa.svg",
+        "/assets/projects/project-enterprise-network.svg"
+      ],
+      "scale": "Biệt thự 3 tầng + Sân vườn 600m² · 16 Camera Dome Âm Trần · 6 WiFi 6 Mesh",
+      "completionDate": "Tháng 08/2023",
+      "year": "2023",
+      "location": "Khu Đô Thị Phú Mỹ Hưng, Quận 7, TP.HCM",
+      "client": "Gia đình Doanh nhân Trần Anh Tuấn",
+      "description": "Yêu cầu tuyệt đối về mặt thẩm mỹ: không để lộ bất kỳ dây dẫn nào ra ngoài, mắt camera dạng vòm nhỏ gọn sơn trùng màu sơn trần thạch cao. Hệ thống WiFi chuyển vùng siêu mượt khi gia chủ đi từ phòng ngủ xuống sân vườn hay hồ bơi.",
+      "technologies": [
+        "UniFi Dream Machine Pro",
+        "UniFi U6 Pro",
+        "Dahua Full-Color Dome",
+        "Cáp Mạng Cat6A LS Vina"
+      ],
+      "highlights": [
+        "Độ trễ Roaming < 30ms, gọi video call Messenger/Zalo khi di chuyển khắp biệt thự không bị ngắt",
+        "Bảo mật riêng tư tuyệt đối, vô hiệu hóa hoàn toàn cổng xem camera từ các bên trung gian",
+        "Tích hợp kết nối thông suốt với hệ sinh thái nhà thông minh Lumi/Aqara"
+      ],
+      "isFeatured": true
+    },
+    {
+      "id": "prj-coffee-chain",
+      "title": "Mạng WiFi Marketing & VPN 18 Chi Nhánh Chuỗi The Urban Coffee",
+      "category": "Chuỗi Bán Lẻ & F&B",
+      "image": "/assets/projects/project-retail-chain.svg",
+      "images": [
+        "/assets/projects/project-retail-chain.svg",
+        "/assets/projects/project-server-rack.svg"
+      ],
+      "scale": "18 Cửa hàng · Quản lý tập trung trên Cloud · 2.500 lượt khách/ngày",
+      "completionDate": "Tháng 05/2023",
+      "year": "2023",
+      "location": "TP. Hồ Chí Minh, Biên Hòa & Vũng Tàu",
+      "client": "Chuỗi F&B The Urban Coffee",
+      "description": "Thiết lập mạng nội bộ liên kết qua VPN WireGuard giúp các máy POS thanh toán gửi dữ liệu về kho trung tâm tức thì. Trang đăng nhập WiFi Marketing nhận diện thương hiệu giúp tăng 40% lượng người theo dõi Fanpage.",
+      "technologies": [
+        "Ruijie Reyee Cloud",
+        "MikroTik RB750Gr3",
+        "VPN WireGuard",
+        "Hệ thống WiFi Marketing Cloud"
+      ],
+      "highlights": [
+        "Khách hàng đông nghẹt giờ cao điểm (150 khách/quán) vẫn xem YouTube Full HD mượt mà",
+        "Dữ liệu đơn hàng POS và doanh thu được mã hóa đồng bộ an toàn theo thời gian thực",
+        "Quản lý từ xa toàn bộ 18 chi nhánh chỉ với 1 ứng dụng duy nhất trên điện thoại"
+      ],
+      "isFeatured": true
+    },
+    {
+      "id": "prj-datacenter-rehab",
+      "title": "Chuẩn Hóa & Cải Tạo Tủ Rack Server Trung Tâm Logistics TransLog",
+      "category": "Doanh Nghiệp & Văn Phòng",
+      "image": "/assets/projects/project-server-rack.svg",
+      "images": [
+        "/assets/projects/project-server-rack.svg",
+        "/assets/projects/project-enterprise-network.svg"
+      ],
+      "scale": "Tủ Rack 42U · Hơn 240 Nốt Mạng Cat6 · Nguồn Dự Phòng UPS 3000VA Online",
+      "completionDate": "Tháng 02/2023",
+      "year": "2023",
+      "location": "Khu Chế Xuất Tân Thuận, Quận 7, TP.HCM",
+      "client": "Công Ty Cổ Phần Logistics TransLog",
+      "description": "Cải tạo toàn diện tủ mạng đang trong tình trạng 'bụi bặm và mạng nhện dây nối'. Tiến hành đo kiểm, đánh mã nhãn màu chuẩn quốc tế, thay mới Patch Panel và cấu hình lại toàn bộ hệ thống nguồn dự phòng hoạt động tự động khi cúp điện.",
+      "technologies": [
+        "Máy đo Fluke Networks",
+        "Patch Panel Cat6A CommScope",
+        "APC Smart-UPS 3000VA",
+        "Router MikroTik CCR"
+      ],
+      "highlights": [
+        "Hoàn tất toàn bộ việc đi lại 240 nốt mạng trong 36 giờ cuối tuần, không làm gián đoạn ngày làm việc",
+        "Hệ thống nguồn UPS online chuyển mạch 0ms, máy chủ chạy liên tục khi điện lưới bị sự cố",
+        "Cung cấp bản đồ cổng mạng chi tiết, kỹ thuật viên mới của công ty nhìn vào là hiểu ngay"
+      ],
+      "isFeatured": false
+    }
+  ]
+}

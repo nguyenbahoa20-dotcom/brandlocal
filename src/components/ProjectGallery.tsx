@@ -1,114 +1,52 @@
 import React, { useState, useEffect } from 'react';
-import { Camera, ArrowUpRight, MapPin, Sparkles, Plus, Sliders, CheckCircle2, RefreshCw } from 'lucide-react';
-import { projectCategories, ProjectItem } from '../config/profile';
+import { Camera, ArrowUpRight, MapPin, Sparkles, RotateCw, ExternalLink } from 'lucide-react';
+import { projects as defaultProjects, projectCategories, ProjectItem } from '../config/profile';
 import { ProjectModal } from './ProjectModal';
-import { AdminProjectModal } from './AdminProjectModal';
-import { getStoredProjects, saveProjectsToStorage, resetProjectsToDefault } from '../utils/projectStorage';
+import { fetchProjectsFromGitHub, resolveProjectImageUrl } from '../utils/githubProjects';
 
 interface ProjectGalleryProps {
   onConsultProject?: (projectTitle: string) => void;
-  isAdminOpenExternal?: boolean;
-  onCloseAdminExternal?: () => void;
 }
 
-export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
-  onConsultProject,
-  isAdminOpenExternal,
-  onCloseAdminExternal,
-}) => {
-  const [projectsList, setProjectsList] = useState<ProjectItem[]>(() => getStoredProjects());
+export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject }) => {
+  const [projectsList, setProjectsList] = useState<ProjectItem[]>(defaultProjects);
   const [selectedCategory, setSelectedCategory] = useState<string>('Tất Cả');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [dataSource, setDataSource] = useState<'github' | 'local_file' | 'fallback'>('fallback');
 
-  // Sync external open request
-  useEffect(() => {
-    if (isAdminOpenExternal !== undefined) {
-      setIsAdminOpen(isAdminOpenExternal);
+  // Tải dữ liệu công trình từ raw.githubusercontent.com khi tải trang
+  const loadProjects = async () => {
+    setIsLoading(true);
+    try {
+      const result = await fetchProjectsFromGitHub();
+      setProjectsList(result.projects);
+      setDataSource(result.source);
+    } catch (err) {
+      console.warn('Lỗi khi tải dữ liệu công trình:', err);
+    } finally {
+      setIsLoading(false);
     }
-  }, [isAdminOpenExternal]);
+  };
 
-  // Listen for global custom event to open admin modal from anywhere (e.g. Header, Footer)
   useEffect(() => {
-    const handleGlobalOpen = () => setIsAdminOpen(true);
-    window.addEventListener('open-admin-project-modal', handleGlobalOpen);
-    return () => window.removeEventListener('open-admin-project-modal', handleGlobalOpen);
+    loadProjects();
   }, []);
 
-  // Filter projects based on user selected category
+  // Lọc dự án theo danh mục người dùng chọn
   const filteredProjects = selectedCategory === 'Tất Cả'
     ? projectsList
     : projectsList.filter((p) => p.category === selectedCategory);
-
-  // Save new or updated project
-  const handleSaveProject = (projectData: ProjectItem) => {
-    setProjectsList((prev) => {
-      const existsIndex = prev.findIndex((p) => p.id === projectData.id);
-      let updated: ProjectItem[];
-      if (existsIndex >= 0) {
-        // Edit existing project
-        updated = [...prev];
-        updated[existsIndex] = projectData;
-      } else {
-        // Add new project to top of list
-        updated = [projectData, ...prev];
-      }
-      saveProjectsToStorage(updated);
-      return updated;
-    });
-
-    setToastMessage(`Đã lưu công trình "${projectData.title}" thành công!`);
-    setTimeout(() => setToastMessage(null), 4000);
-  };
-
-  // Delete project
-  const handleDeleteProject = (projectId: string) => {
-    setProjectsList((prev) => {
-      const updated = prev.filter((p) => p.id !== projectId);
-      saveProjectsToStorage(updated);
-      return updated;
-    });
-    setToastMessage('Đã xóa công trình khỏi danh sách.');
-    setTimeout(() => setToastMessage(null), 3000);
-  };
-
-  // Reset to original projects from profile.ts
-  const handleResetDefaults = () => {
-    const defaults = resetProjectsToDefault();
-    setProjectsList([...defaults]);
-    setToastMessage('Đã khôi phục danh sách công trình gốc từ cấu hình.');
-    setTimeout(() => setToastMessage(null), 3500);
-  };
-
-  const handleCloseAdmin = () => {
-    setIsAdminOpen(false);
-    onCloseAdminExternal?.();
-  };
 
   return (
     <section id="projects" className="py-20 lg:py-28 bg-[#080d1a] relative border-t border-slate-800/80">
       {/* Background radial highlight */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
-      {/* Floating Success Toast */}
-      {toastMessage && (
-        <div className="fixed bottom-20 sm:bottom-8 right-4 sm:right-8 z-50 flex items-center gap-3 px-5 py-3 rounded-2xl bg-cyan-950/95 border border-cyan-400/60 text-white text-xs font-semibold shadow-2xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-4">
-          <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-          <span>{toastMessage}</span>
-          <button
-            onClick={() => setToastMessage(null)}
-            className="text-cyan-300 hover:text-white ml-2 text-xs"
-          >
-            ✕
-          </button>
-        </div>
-      )}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
+        <div className="max-w-3xl mx-auto text-center space-y-3 mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-bold tracking-widest uppercase text-cyan-400 font-mono">
             <Camera className="w-3.5 h-3.5" />
             <span>HỒ SƠ NĂNG LỰC &amp; DỰ ÁN THỰC CHIẾN</span>
@@ -122,25 +60,36 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
             Tổng hợp hình ảnh chụp thực tế tại công trình, bản vẽ bố trí và thông số kỹ thuật các hệ thống Camera AI &amp; Hạ tầng mạng doanh nghiệp tiêu biểu.
           </p>
 
-          {/* Admin Action Button Bar directly in section */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+          {/* Sync status & Refresh button */}
+          <div className="pt-1 flex items-center justify-center gap-3 text-xs text-slate-500 font-mono">
+            <span>
+              Nguồn dữ liệu:{' '}
+              <strong className={dataSource === 'github' ? 'text-emerald-400' : 'text-slate-400'}>
+                {dataSource === 'github' ? 'GitHub (main)' : dataSource === 'local_file' ? 'Local Content' : 'Bản Gốc'}
+              </strong>
+            </span>
+            <span>·</span>
             <button
-              onClick={() => setIsAdminOpen(true)}
+              onClick={loadProjects}
               type="button"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:scale-[0.98] transition-all shadow-lg shadow-cyan-500/25 cursor-pointer"
+              disabled={isLoading}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-cyan-300 transition-colors cursor-pointer disabled:opacity-50"
+              title="Tải lại nội dung mới nhất từ GitHub"
             >
-              <Plus className="w-4 h-4 text-slate-950" />
-              <span>+ Thêm Công Trình Mới / Quản Trị</span>
+              <RotateCw className={`w-3 h-3 ${isLoading ? 'animate-spin text-cyan-400' : ''}`} />
+              <span>{isLoading ? 'Đang đồng bộ...' : 'Làm mới dữ liệu'}</span>
             </button>
-
-            <button
-              onClick={() => setIsAdminOpen(true)}
-              type="button"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-xs text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 transition-colors cursor-pointer"
+            <span>·</span>
+            <a
+              href="/admin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-900/60 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-cyan-400 transition-colors"
+              title="Truy cập Decap CMS quản trị nội dung"
             >
-              <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Quản Lý ({projectsList.length} dự án)</span>
-            </button>
+              <span>Quản trị CMS</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
         </div>
 
@@ -178,11 +127,12 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
           })}
         </div>
 
-        {/* Project Gallery Cards Grid (Auto-maps over projectsList state) */}
+        {/* Project Gallery Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => {
             const albumCount = project.images?.length || 1;
-            const coverImage = project.image || project.images?.[0] || '/assets/cover.svg';
+            const originalCover = project.image || project.images?.[0] || '/assets/cover.svg';
+            const rawCover = resolveProjectImageUrl(originalCover);
 
             return (
               <div
@@ -195,11 +145,17 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
                   onClick={() => setActiveModalProject(project)}
                 >
                   <img
-                    src={coverImage}
+                    src={rawCover}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                     loading="lazy"
+                    onError={(e) => {
+                      // Fallback sang đường dẫn nội bộ nếu chưa có trên GitHub raw
+                      if (originalCover && e.currentTarget.src !== originalCover) {
+                        e.currentTarget.src = originalCover;
+                      }
+                    }}
                   />
 
                   {/* Gradient Scrim Overlay */}
@@ -295,15 +251,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
           <div className="text-center py-16 text-slate-400 bg-slate-900/30 border border-slate-800 rounded-2xl p-8 max-w-md mx-auto space-y-3">
             <Camera className="w-10 h-10 text-slate-600 mx-auto" />
             <p className="text-sm font-medium text-slate-300">Không có dự án nào trong mục này</p>
-            <p className="text-xs text-slate-500">Bấm chọn "Tất Cả" hoặc bấm nút thêm dự án mới để thêm công trình vào mục này.</p>
-            <button
-              onClick={() => setIsAdminOpen(true)}
-              type="button"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors cursor-pointer"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Thêm Công Trình Vào Mục Này</span>
-            </button>
+            <p className="text-xs text-slate-500">Vui lòng chọn danh mục khác hoặc kiểm tra lại tệp nội dung trên GitHub.</p>
           </div>
         )}
 
@@ -314,16 +262,6 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
         project={activeModalProject}
         onClose={() => setActiveModalProject(null)}
         onConsultProject={onConsultProject}
-      />
-
-      {/* Admin Dashboard / Management Modal */}
-      <AdminProjectModal
-        isOpen={isAdminOpen}
-        onClose={handleCloseAdmin}
-        onSaveProject={handleSaveProject}
-        onDeleteProject={handleDeleteProject}
-        projectsList={projectsList}
-        onResetDefaults={handleResetDefaults}
       />
     </section>
   );

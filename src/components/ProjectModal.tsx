@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Calendar, MapPin, Building, Cpu, Camera, ChevronLeft, ChevronRight, Phone, MessageSquare } from 'lucide-react';
 import { ProjectItem, profile } from '../config/profile';
+import { resolveProjectImageUrl } from '../utils/githubProjects';
 
 interface ProjectModalProps {
   project: ProjectItem | null;
@@ -120,10 +121,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <div className="space-y-3">
             <div className="relative aspect-[16/10] sm:aspect-[16/9] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 group select-none">
               <img
-                src={currentImage}
+                src={resolveProjectImageUrl(currentImage)}
                 alt={`${project.title} - Ảnh ${activeImageIndex + 1}`}
                 className="w-full h-full object-cover sm:object-contain transition-all duration-300"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  if (currentImage && e.currentTarget.src !== currentImage) {
+                    e.currentTarget.src = currentImage;
+                  }
+                }}
               />
 
               {/* Album Controls (Previous / Next) */}
@@ -171,10 +177,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     }`}
                   >
                     <img
-                      src={img}
+                      src={resolveProjectImageUrl(img)}
                       alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        if (img && e.currentTarget.src !== img) {
+                          e.currentTarget.src = img;
+                        }
+                      }}
                     />
                   </button>
                 ))}
