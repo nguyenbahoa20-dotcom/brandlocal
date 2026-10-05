@@ -37,6 +37,15 @@ export const Footer: React.FC = () => {
                 <li><a href="#projects" className="hover:text-cyan-400 transition-colors">Dự án đã thực hiện</a></li>
                 <li><a href="#experience" className="hover:text-cyan-400 transition-colors">Kinh nghiệm công tác</a></li>
                 <li><a href="#contact" className="hover:text-cyan-400 transition-colors">Liên hệ khảo sát</a></li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-admin-project-modal'))}
+                    className="text-cyan-400/90 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-1 font-mono text-[11px] pt-1"
+                  >
+                    <span>+ Quản Trị / Thêm Công Trình</span>
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -71,8 +80,16 @@ export const Footer: React.FC = () => {
 
           {/* Bottom Bar: Copyright & Back to Top */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-            <div>
-              &copy; {new Date().getFullYear()} {profile.name} ({profile.brandName}). Bản quyền thuộc về tác giả.
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-center sm:text-left">
+              <span>&copy; {new Date().getFullYear()} {profile.name} ({profile.brandName}). Bản quyền thuộc về tác giả.</span>
+              <span className="text-slate-700 hidden sm:inline">·</span>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-admin-project-modal'))}
+                className="text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+              >
+                Bảng Quản Trị Dự Án
+              </button>
             </div>
 
             <button

@@ -1,9 +1,39 @@
 # HƯỚNG DẪN QUẢN TRỊ WEBSITE THƯƠNG HIỆU CÁ NHÂN "HOANET"
 ## HỆ THỐNG DANH MỤC & ALBUM DỰ ÁN CÔNG TRÌNH TỰ ĐỘNG
 
-Website thương hiệu cá nhân **HOANET** (Chuyên gia Kỹ thuật CCTV & Hạ tầng mạng) được xây dựng theo kiến trúc **dữ liệu tập trung 100% tại `src/config/profile.ts`**.
+Website thương hiệu cá nhân **HOANET** (Chuyên gia Kỹ thuật CCTV & Hạ tầng mạng) hiện đã được trang bị **Bảng Quản Trị Trực Tiếp Ngay Trên Giao Diện Web (Admin Dashboard Modal)** cùng hệ thống lưu trữ tự động.
 
-Bạn **hoàn toàn không cần biết lập trình chuyên sâu**, không cần động vào mã lệnh JSX/TSX hay Tailwind CSS. Mỗi khi hoàn thiện một hợp đồng công trình mới, bạn chỉ cần làm theo 3 bước hướng dẫn dưới đây để dự án xuất hiện đẹp mắt trên website.
+Bạn **hoàn toàn không cần sửa code**, chỉ cần mở form trên web, điền thông tin và bấm "Lưu dự án", công trình sẽ hiển thị trực tiếp ngay lập tức!
+
+---
+
+## ⚡ CÁCH 1: THÊM DỰ ÁN TRỰC TIẾP TRÊN WEB BẰNG MODAL QUẢN TRỊ (KHUYÊN DÙNG)
+
+Bạn có thể mở Form Quản Trị bằng 3 vị trí trên website:
+1. Nút **`[+ Thêm Công Trình Mới / Quản Trị]`** nằm ngay tại khu vực dự án.
+2. Nút **`[Quản Trị]`** ở thanh Menu trên cùng (Header).
+3. Nút **`[+ Quản Trị / Thêm Công Trình]`** ở chân trang (Footer).
+
+### Các tính năng có trong Form Quản Trị:
+* **Tên dự án**: Nhập tên công trình vừa thi công.
+* **Chọn danh mục**: Chọn danh mục có sẵn hoặc chọn `+ Danh mục tùy chỉnh...` để tạo nhóm mới.
+* **Tải / chọn ảnh album**:
+  * Bấm nút **"Tải Ảnh Từ Thiết Bị (Nhiều ảnh)"** để chọn trực tiếp ảnh từ điện thoại/máy tính của bạn (tự động chuyển đổi hiển thị ngay không cần server).
+  * Hoặc dán đường dẫn ảnh: `/assets/projects/ten-anh.jpg`.
+  * Có khung xem trước (Preview) tất cả các ảnh trong album, có thể xóa ảnh hoặc bấm "Đặt làm bìa" cho ảnh đẹp nhất.
+* **Địa điểm & Khách hàng**: Nhập địa chỉ công trình và tên chủ đầu tư.
+* **Quy mô**: Ví dụ `Tòa nhà 6 tầng · 32 Camera IP · 18 Access Point`.
+* **Năm hoàn thành**: Ví dụ `Tháng 05/2024` hoặc `2024`.
+* **Mô tả công trình**: Nhập chi tiết giải pháp kỹ thuật, yêu cầu thi công.
+* **Công nghệ & Thiết bị**: Bấm các nút gợi ý có sẵn (`+ Hikvision ColorVu`, `+ MikroTik CCR`, `+ Cisco Switch`...) hoặc gõ thêm thiết bị mới.
+* **Điểm nổi bật**: Thêm các kết quả nghiệm thu bằng gạch đầu dòng.
+* **Dự án nổi bật**: Bật công tắc để hiện huy hiệu `⭐ Nổi Bật`.
+
+👉 Bấm nút **"Lưu Dự Án Vào Website"**: Công trình sẽ ngay lập tức được thêm vào đầu danh sách, hiển thị trên giao diện và tự động lưu vào trình duyệt (LocalStorage). Khi bạn F5/reload trang dữ liệu vẫn còn nguyên vẹn!
+
+### Tab Quản Lý & Xuất Code:
+* **Tab Danh Sách**: Cho phép bạn xem lại toàn bộ dự án, bấm nút **Sửa** hoặc **Xóa** bất kỳ công trình nào.
+* **Tab Xuất Code**: Cung cấp sẵn mã nguồn TypeScript đã được format chuẩn. Bạn chỉ cần bấm "Sao Chép Mã Nguồn" rồi dán vào `src/config/profile.ts` nếu muốn lưu vĩnh viễn vào source code Git.
 
 ---
 

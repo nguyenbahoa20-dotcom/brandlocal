@@ -1,30 +1,114 @@
-import React, { useState } from 'react';
-import { Camera, ArrowUpRight, MapPin, Calendar, Cpu, Layers, Sparkles, Building2, CheckCircle2 } from 'lucide-react';
-import { projects, projectCategories, ProjectItem } from '../config/profile';
+import React, { useState, useEffect } from 'react';
+import { Camera, ArrowUpRight, MapPin, Sparkles, Plus, Sliders, CheckCircle2, RefreshCw } from 'lucide-react';
+import { projectCategories, ProjectItem } from '../config/profile';
 import { ProjectModal } from './ProjectModal';
+import { AdminProjectModal } from './AdminProjectModal';
+import { getStoredProjects, saveProjectsToStorage, resetProjectsToDefault } from '../utils/projectStorage';
 
 interface ProjectGalleryProps {
   onConsultProject?: (projectTitle: string) => void;
+  isAdminOpenExternal?: boolean;
+  onCloseAdminExternal?: () => void;
 }
 
-export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject }) => {
+export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
+  onConsultProject,
+  isAdminOpenExternal,
+  onCloseAdminExternal,
+}) => {
+  const [projectsList, setProjectsList] = useState<ProjectItem[]>(() => getStoredProjects());
   const [selectedCategory, setSelectedCategory] = useState<string>('Tất Cả');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  // Sync external open request
+  useEffect(() => {
+    if (isAdminOpenExternal !== undefined) {
+      setIsAdminOpen(isAdminOpenExternal);
+    }
+  }, [isAdminOpenExternal]);
+
+  // Listen for global custom event to open admin modal from anywhere (e.g. Header, Footer)
+  useEffect(() => {
+    const handleGlobalOpen = () => setIsAdminOpen(true);
+    window.addEventListener('open-admin-project-modal', handleGlobalOpen);
+    return () => window.removeEventListener('open-admin-project-modal', handleGlobalOpen);
+  }, []);
 
   // Filter projects based on user selected category
   const filteredProjects = selectedCategory === 'Tất Cả'
-    ? projects
-    : projects.filter((p) => p.category === selectedCategory);
+    ? projectsList
+    : projectsList.filter((p) => p.category === selectedCategory);
+
+  // Save new or updated project
+  const handleSaveProject = (projectData: ProjectItem) => {
+    setProjectsList((prev) => {
+      const existsIndex = prev.findIndex((p) => p.id === projectData.id);
+      let updated: ProjectItem[];
+      if (existsIndex >= 0) {
+        // Edit existing project
+        updated = [...prev];
+        updated[existsIndex] = projectData;
+      } else {
+        // Add new project to top of list
+        updated = [projectData, ...prev];
+      }
+      saveProjectsToStorage(updated);
+      return updated;
+    });
+
+    setToastMessage(`Đã lưu công trình "${projectData.title}" thành công!`);
+    setTimeout(() => setToastMessage(null), 4000);
+  };
+
+  // Delete project
+  const handleDeleteProject = (projectId: string) => {
+    setProjectsList((prev) => {
+      const updated = prev.filter((p) => p.id !== projectId);
+      saveProjectsToStorage(updated);
+      return updated;
+    });
+    setToastMessage('Đã xóa công trình khỏi danh sách.');
+    setTimeout(() => setToastMessage(null), 3000);
+  };
+
+  // Reset to original projects from profile.ts
+  const handleResetDefaults = () => {
+    const defaults = resetProjectsToDefault();
+    setProjectsList([...defaults]);
+    setToastMessage('Đã khôi phục danh sách công trình gốc từ cấu hình.');
+    setTimeout(() => setToastMessage(null), 3500);
+  };
+
+  const handleCloseAdmin = () => {
+    setIsAdminOpen(false);
+    onCloseAdminExternal?.();
+  };
 
   return (
     <section id="projects" className="py-20 lg:py-28 bg-[#080d1a] relative border-t border-slate-800/80">
       {/* Background radial highlight */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
+      {/* Floating Success Toast */}
+      {toastMessage && (
+        <div className="fixed bottom-20 sm:bottom-8 right-4 sm:right-8 z-50 flex items-center gap-3 px-5 py-3 rounded-2xl bg-cyan-950/95 border border-cyan-400/60 text-white text-xs font-semibold shadow-2xl backdrop-blur-md animate-in fade-in slide-in-from-bottom-4">
+          <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
+          <span>{toastMessage}</span>
+          <button
+            onClick={() => setToastMessage(null)}
+            className="text-cyan-300 hover:text-white ml-2 text-xs"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-xs font-bold tracking-widest uppercase text-cyan-400 font-mono">
             <Camera className="w-3.5 h-3.5" />
             <span>HỒ SƠ NĂNG LỰC &amp; DỰ ÁN THỰC CHIẾN</span>
@@ -37,6 +121,27 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
           <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
             Tổng hợp hình ảnh chụp thực tế tại công trình, bản vẽ bố trí và thông số kỹ thuật các hệ thống Camera AI &amp; Hạ tầng mạng doanh nghiệp tiêu biểu.
           </p>
+
+          {/* Admin Action Button Bar directly in section */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={() => setIsAdminOpen(true)}
+              type="button"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:scale-[0.98] transition-all shadow-lg shadow-cyan-500/25 cursor-pointer"
+            >
+              <Plus className="w-4 h-4 text-slate-950" />
+              <span>+ Thêm Công Trình Mới / Quản Trị</span>
+            </button>
+
+            <button
+              onClick={() => setIsAdminOpen(true)}
+              type="button"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-xs text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 transition-colors cursor-pointer"
+            >
+              <Sliders className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Quản Lý ({projectsList.length} dự án)</span>
+            </button>
+          </div>
         </div>
 
         {/* Category Filter Tabs */}
@@ -44,8 +149,8 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
           {projectCategories.map((category) => {
             const isActive = selectedCategory === category;
             const count = category === 'Tất Cả'
-              ? projects.length
-              : projects.filter((p) => p.category === category).length;
+              ? projectsList.length
+              : projectsList.filter((p) => p.category === category).length;
 
             return (
               <button
@@ -73,7 +178,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
           })}
         </div>
 
-        {/* Project Gallery Cards Grid (Auto-maps over projects array) */}
+        {/* Project Gallery Cards Grid (Auto-maps over projectsList state) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => {
             const albumCount = project.images?.length || 1;
@@ -187,10 +292,18 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
 
         {/* Empty Filter State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-16 text-slate-400 bg-slate-900/30 border border-slate-800 rounded-2xl p-8 max-w-md mx-auto">
-            <Camera className="w-10 h-10 text-slate-600 mx-auto mb-3" />
+          <div className="text-center py-16 text-slate-400 bg-slate-900/30 border border-slate-800 rounded-2xl p-8 max-w-md mx-auto space-y-3">
+            <Camera className="w-10 h-10 text-slate-600 mx-auto" />
             <p className="text-sm font-medium text-slate-300">Không có dự án nào trong mục này</p>
-            <p className="text-xs text-slate-500 mt-1">Vui lòng bấm chọn "Tất Cả" để xem toàn bộ danh sách công trình.</p>
+            <p className="text-xs text-slate-500">Bấm chọn "Tất Cả" hoặc bấm nút thêm dự án mới để thêm công trình vào mục này.</p>
+            <button
+              onClick={() => setIsAdminOpen(true)}
+              type="button"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors cursor-pointer"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Thêm Công Trình Vào Mục Này</span>
+            </button>
           </div>
         )}
 
@@ -201,6 +314,16 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
         project={activeModalProject}
         onClose={() => setActiveModalProject(null)}
         onConsultProject={onConsultProject}
+      />
+
+      {/* Admin Dashboard / Management Modal */}
+      <AdminProjectModal
+        isOpen={isAdminOpen}
+        onClose={handleCloseAdmin}
+        onSaveProject={handleSaveProject}
+        onDeleteProject={handleDeleteProject}
+        projectsList={projectsList}
+        onResetDefaults={handleResetDefaults}
       />
     </section>
   );
