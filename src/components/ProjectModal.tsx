@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, CheckCircle2, Calendar, MapPin, Building, Cpu, Camera, ChevronLeft, ChevronRight, Phone, MessageSquare } from 'lucide-react';
 import { ProjectItem, profile } from '../config/profile';
 import { resolveProjectImageUrl } from '../utils/githubProjects';
@@ -15,11 +15,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   onConsultProject,
 }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const thumbnailsRef = useRef<HTMLDivElement>(null);
 
   // Reset active image when project changes
   useEffect(() => {
     setActiveImageIndex(0);
   }, [project]);
+
+  // Keep the selected thumbnail in view when navigating larger galleries.
+  useEffect(() => {
+    const activeThumbnail = thumbnailsRef.current?.querySelector<HTMLButtonElement>(
+      `[data-thumbnail-index="${activeImageIndex}"]`,
+    );
+    activeThumbnail?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }, [activeImageIndex, project]);
 
   // Keyboard navigation (Esc to close, Left/Right for album photos)
   useEffect(() => {
@@ -164,10 +173,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
             {/* Thumbnails Strip (If more than 1 image) */}
             {albumImages.length > 1 && (
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+              <div ref={thumbnailsRef} className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
                 {albumImages.map((img, idx) => (
                   <button
                     key={idx}
+                    data-thumbnail-index={idx}
                     onClick={() => setActiveImageIndex(idx)}
                     type="button"
                     className={`relative w-20 h-14 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${
