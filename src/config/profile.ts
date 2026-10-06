@@ -363,6 +363,33 @@ export const projects: ProjectItem[] = [
       "Cung cấp bản đồ cổng mạng chi tiết, kỹ thuật viên mới của công ty nhìn vào là hiểu ngay",
     ],
     isFeatured: false,
+  },,
+  {
+    id: "prj-bida-ung-dai-phi-168",
+    title: "Hệ Thống 24 Camera IP 6MP & WiFi Câu Lạc Bộ Bida Ưng Đại Phi 168",
+    category: "Chuỗi Bán Lẻ & F&B",
+    images: [],
+    scale: "24 Camera IP 6MP · NVR 8 kênh + NVR 16 kênh · WiFi khách hàng",
+    completionDate: "Chưa cập nhật",
+    location: "Khu vực VSIP, Bình Dương",
+    client: "Câu Lạc Bộ Bida Ưng Đại Phi 168",
+    description: "Lắp đặt hệ thống 24 camera IP độ phân giải 6MP cho Câu Lạc Bộ Bida Ưng Đại Phi 168 tại khu vực VSIP, Bình Dương. Hệ thống ghi hình sử dụng một đầu ghi NVR 8 kênh và một đầu ghi NVR 16 kênh; camera được kết nối qua ba switch PoE 8 cổng Mercusys. Một switch Gigabit Ruijie đảm nhiệm kết nối mạng chính. Công trình đồng thời có hệ thống WiFi phục vụ khách hàng tại câu lạc bộ. Giải pháp được lựa chọn theo nhu cầu sử dụng thực tế, hướng đến khả năng quan sát rõ nét, kết nối WiFi mượt mà cho khách và tối ưu chi phí đầu tư cho chủ đầu tư.",
+    technologies: [
+      "24 Camera IP 6MP",
+      "Đầu ghi NVR 8 kênh",
+      "Đầu ghi NVR 16 kênh",
+      "3 Switch PoE 8 cổng Mercusys",
+      "Switch Gigabit Ruijie",
+      "Hệ thống WiFi phục vụ khách hàng",
+    ],
+    highlights: [
+      "24 camera IP 6MP kết hợp một đầu ghi NVR 8 kênh và một đầu ghi NVR 16 kênh",
+      "Ba switch PoE 8 cổng Mercusys kết nối hệ thống camera",
+      "Một switch Gigabit Ruijie kết nối mạng chính",
+      "Hệ thống WiFi phục vụ khách hàng, hướng đến trải nghiệm mượt mà",
+      "Tối ưu thiết bị để cân bằng hiệu quả và chi phí đầu tư",
+    ],
+    isFeatured: false,
   },
 ];
 
