@@ -5,15 +5,15 @@
       "title": "Hệ Thống 24 Camera IP 6MP & WiFi Câu Lạc Bộ Bida Ưng Đại Phi 168",
       "category": "Chuỗi Bán Lẻ & F&B",
       "images": [
-        "/assets/projects/bida-ung-dai-phi-168-01.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-02.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-03.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-04.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-05.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-06.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-07.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-08.jpg",
-        "/assets/projects/bida-ung-dai-phi-168-09.jpg"
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-01.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-02.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-03.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-04.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-05.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-06.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-07.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-08.jpg",
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-09.jpg"
       ],
       "scale": "24 Camera IP 6MP · NVR 8 kênh + NVR 16 kênh · WiFi khách hàng",
       "completionDate": "Tháng 04/2024",
@@ -37,7 +37,7 @@
       ],
       "isFeatured": false,
       "year": "2024",
-      "image": "/assets/projects/bida-ung-dai-phi-168-01.jpg"
+      "image": "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-01.jpg"
     },
     {
       "scale": "Tòa Nhà Văn Phòng Hiện Đại · 59 Camera IP 4K · Hệ Thống WiFi Doanh Nghiệp Chịu Tải Cao",
