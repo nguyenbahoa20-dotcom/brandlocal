@@ -363,7 +363,7 @@ export const projects: ProjectItem[] = [
       "Cung cấp bản đồ cổng mạng chi tiết, kỹ thuật viên mới của công ty nhìn vào là hiểu ngay",
     ],
     isFeatured: false,
-  },,
+  },
   {
     id: "prj-bida-ung-dai-phi-168",
     title: "Hệ Thống 24 Camera IP 6MP & WiFi Câu Lạc Bộ Bida Ưng Đại Phi 168",
