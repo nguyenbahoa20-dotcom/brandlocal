@@ -53,7 +53,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight text-balance">
-            Album Công Trình &amp; Giải Pháp Đã Thi Công
+            Công Trình &amp; Giải Pháp Đã Thi Công
           </h2>
 
           <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
