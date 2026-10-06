@@ -62,13 +62,6 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
 
           {/* Sync status & Refresh button */}
           <div className="pt-1 flex items-center justify-center gap-3 text-xs text-slate-500 font-mono">
-            <span>
-              Nguồn dữ liệu:{' '}
-              <strong className={dataSource === 'github' ? 'text-emerald-400' : 'text-slate-400'}>
-                {dataSource === 'github' ? 'GitHub (main)' : dataSource === 'local_file' ? 'Local Content' : 'Bản Gốc'}
-              </strong>
-            </span>
-            <span>·</span>
             <button
               onClick={loadProjects}
               type="button"
