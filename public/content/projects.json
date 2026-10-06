@@ -1,9 +1,19 @@
 {
   "projects": [
     {
-      "id": "prj-bida-ung-dai-phi-168",
+      "scale": "24 Camera IP 6MP · NVR 8 kênh + NVR 16 kênh · WiFi khách hàng",
+      "completionDate": "Tháng 04/2024",
+      "technologies": [
+        "24 Camera IP 6MP",
+        "Đầu ghi NVR 8 kênh",
+        "Đầu ghi NVR 16 kênh",
+        "3 Switch PoE 8 cổng Mercusys",
+        "Switch Gigabit Ruijie",
+        "Hệ thống WiFi phục vụ khách hàng"
+      ],
+      "client": "Câu Lạc Bộ Bida Ưng Đại Phi 168",
+      "location": "Khu vực VSIP, Bình Dương",
       "title": "Hệ Thống 24 Camera IP 6MP & WiFi Câu Lạc Bộ Bida Ưng Đại Phi 168",
-      "category": "Chuỗi Bán Lẻ & F&B",
       "images": [
         "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-01.jpg",
         "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-02.jpg",
@@ -13,31 +23,22 @@
         "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-06.jpg",
         "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-07.jpg",
         "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-08.jpg",
-        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-09.jpg"
+        "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-09.jpg",
+        "/assets/projects/bida-ung-dai-phi-168-01.jpg"
       ],
-      "scale": "24 Camera IP 6MP · NVR 8 kênh + NVR 16 kênh · WiFi khách hàng",
-      "completionDate": "Tháng 04/2024",
-      "location": "Khu vực VSIP, Bình Dương",
-      "client": "Câu Lạc Bộ Bida Ưng Đại Phi 168",
+      "isFeatured": false,
+      "id": "prj-bida-ung-dai-phi-168",
+      "image": "/assets/projects/screenshot_1791284125.jpeg",
       "description": "Lắp đặt hệ thống 24 camera IP độ phân giải 6MP cho Câu Lạc Bộ Bida Ưng Đại Phi 168 tại khu vực VSIP, Bình Dương. Hệ thống ghi hình sử dụng một đầu ghi NVR 8 kênh và một đầu ghi NVR 16 kênh; camera được kết nối qua ba switch PoE 8 cổng Mercusys. Một switch Gigabit Ruijie đảm nhiệm kết nối mạng chính. Công trình đồng thời có hệ thống WiFi phục vụ khách hàng tại câu lạc bộ.\n\nGiải pháp được lựa chọn theo nhu cầu sử dụng thực tế, hướng đến khả năng quan sát rõ nét, kết nối WiFi mượt mà cho khách và tối ưu chi phí đầu tư cho chủ đầu tư.",
-      "technologies": [
-        "24 Camera IP 6MP",
-        "Đầu ghi NVR 8 kênh",
-        "Đầu ghi NVR 16 kênh",
-        "3 Switch PoE 8 cổng Mercusys",
-        "Switch Gigabit Ruijie",
-        "Hệ thống WiFi phục vụ khách hàng"
-      ],
+      "year": "2024",
+      "category": "Chuỗi Bán Lẻ & F&B",
       "highlights": [
         "24 camera IP 6MP kết hợp hai đầu ghi NVR 8 kênh và 16 kênh.",
         "Ba switch PoE 8 cổng Mercusys kết nối hệ thống camera.",
         "Một switch Gigabit Ruijie kết nối mạng chính.",
         "Hệ thống WiFi phục vụ khách hàng, hướng đến trải nghiệm sử dụng mượt mà.",
         "Tối ưu phương án thiết bị để cân bằng hiệu quả và chi phí đầu tư."
-      ],
-      "isFeatured": false,
-      "year": "2024",
-      "image": "https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/assets/projects/bida-ung-dai-phi-168-01.jpg"
+      ]
     },
     {
       "scale": "Tòa Nhà Văn Phòng Hiện Đại · 59 Camera IP 4K · Hệ Thống WiFi Doanh Nghiệp Chịu Tải Cao",
