@@ -103,7 +103,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
               aria-label="Gọi điện thoại"
             >
               <Phone className="w-3.5 h-3.5 text-cyan-400" />
-              <span className="tabular-nums font-mono">{profile.contact.phoneDisplay}</span>
             </a>
 
             <button
@@ -184,7 +183,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
             >
-              <span>Nhắn Zalo Ngay ({profile.contact.phoneDisplay})</span>
+              <span>Nhắn Zalo Ngay</span>
             </a>
           </div>
         </div>
