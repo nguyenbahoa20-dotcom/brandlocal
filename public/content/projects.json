@@ -144,7 +144,7 @@
       ],
       "isFeatured": false,
       "id": "prj-camera-ptz-binh-an",
-      "image": "/assets/projects/camera-ptz-binh-an-02.jpg",
+      "image": "/assets/projects/dsc_0331.jpg",
       "description": "Đội ngũ trực tiếp lắp đặt thiết bị camera PTZ Hikvision cho một công ty thành viên thuộc Tổng Công ty Việt Tiến tại Khu công nghiệp Bình An.",
       "year": "2024",
       "category": "Nhà Xưởng & Kho Bãi",
@@ -171,11 +171,17 @@
       "images": [
         "/assets/projects/hoi-truong-ha-tien-01.jpg",
         "/assets/projects/hoi-truong-ha-tien-02.jpg",
-        "/assets/projects/hoi-truong-ha-tien-03.jpg"
+        "/assets/projects/hoi-truong-ha-tien-03.jpg",
+        "/assets/projects/dsc_0490.jpg",
+        "/assets/projects/dsc_0482.jpg",
+        "/assets/projects/dsc_0487.jpg",
+        "/assets/projects/dsc_0532.jpg",
+        "/assets/projects/dsc_0550.jpg",
+        "/assets/projects/dsc_0590.jpg"
       ],
       "isFeatured": false,
       "id": "prj-hoi-truong-ha-tien",
-      "image": "/assets/projects/hoi-truong-ha-tien-01.jpg",
+      "image": "/assets/projects/dsc_0490.jpg",
       "description": "Thi công hệ thống camera và WiFi cho hội trường tại Hà Tiên. Hệ thống gồm 32 camera 4MP, đầu ghi NVR 32 kênh, ổ cứng 8TB, hai switch PoE 16 cổng, bốn Aruba Instant On AP, một switch PoE Aruba, hai tủ rack treo 8U và khoảng 1.500 m cáp.",
       "year": "2024",
       "category": "Doanh Nghiệp & Văn Phòng",
