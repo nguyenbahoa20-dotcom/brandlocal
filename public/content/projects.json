@@ -79,146 +79,208 @@
       ]
     },
     {
-      "scale": "5 Tầng lầu · 350 Nhân sự · 40 Camera AI · 18 Access Point WiFi 6",
-      "completionDate": "Tháng 01/2024",
-      "technologies": [
-        "MikroTik CCR2004",
-        "Cisco Catalyst 48P",
-        "Aruba AP22",
-        "Hikvision 4K AcuSense",
-        "Cáp quang OM3"
-      ],
-      "client": "Tập Đoàn Công Nghệ TechCorp",
-      "location": "Khu Công Nghệ Cao, TP. Thủ Đức, TP.HCM",
-      "title": "Hạ Tầng Mạng cao & Camera AI Trụ Sở TechCorp",
-      "images": [
-        "/assets/projects/project-enterprise-network.svg",
-        "/assets/projects/project-server-rack.svg",
-        "/assets/projects/project-viettien-office.svg"
-      ],
-      "isFeatured": true,
-      "id": "prj-tech-corp",
-      "image": "/assets/projects/project-enterprise-network.svg",
-      "description": "Thiết kế trọn gói từ bản vẽ đến thi công hạ tầng mạng trục cáp quang 10Gbps, hệ thống camera AI nhận diện khuôn mặt điểm danh nhân sự và phủ sóng WiFi 6 roaming không góc chết cho 350 kỹ sư phần mềm làm việc liên tục.",
-      "year": "2024",
-      "category": "Doanh Nghiệp & Văn Phòng",
-      "highlights": [
-        "Băng thông 10Gbps giữa các tầng lầu không bao giờ xảy ra nghẽn cổ chai",
-        "Cân bằng tải 3 đường cáp quang VNPT, Viettel, FPT tự động chuyển tuyến khi đứt cáp quang biển",
-        "Tách biệt hoàn toàn VLAN Kỹ thuật, Hành chính, Khách và Camera an ninh"
-      ]
-    },
-    {
-      "scale": "Diện tích 20.000m² · 64 Camera Full-color · 4 Đầu ghi NVR RAID 5",
-      "completionDate": "Tháng 11/2023",
-      "technologies": [
-        "Hikvision ColorVu 4K",
-        "PTZ Zoom Quang 32X",
-        "Switch Công Nghiệp PoE+",
-        "Hệ Thống Lưu Trữ RAID 5"
-      ],
-      "client": "Công Ty TNHH Sản Xuất Bao Bì Đại Á",
-      "location": "Khu Công Nghiệp VSIP II, Tỉnh Bình Dương",
-      "title": "Hệ Thống 64 Camera 4K AI Cho Cụm Nhà Xưởng Sản Xuất 20.000m²",
-      "images": [
-        "/assets/projects/project-cctv-factory.svg",
-        "/assets/projects/project-server-rack.svg"
-      ],
-      "isFeatured": true,
-      "id": "prj-factory-cctv",
-      "image": "/assets/projects/project-cctv-factory.svg",
-      "description": "Triển khai mạng lưới camera giám sát chuyên dụng môi trường công nghiệp bụi bặm và nhiệt độ cao. Tích hợp AI phát hiện người không đội mũ bảo hộ lao động và cảnh báo xâm nhập khu vực máy dập nguy hiểm.",
-      "year": "2023",
-      "category": "Nhà Xưởng & Kho Bãi",
-      "highlights": [
-        "Quan sát có màu sắc nét ban đêm như ban ngày tại toàn bộ các phân xưởng",
-        "Camera PTZ tự động bám theo đối tượng (Smart Tracking) khi phát hiện người đi vào khu vực cấm",
-        "Hệ thống lưu trữ 45 ngày liên tục với cơ chế bảo vệ dữ liệu RAID 5 an toàn"
-      ]
-    },
-    {
-      "scale": "Biệt thự 3 tầng + Sân vườn 600m² · 16 Camera Dome Âm Trần · 6 WiFi 6 Mesh",
-      "completionDate": "Tháng 08/2023",
-      "technologies": [
-        "UniFi Dream Machine Pro",
-        "UniFi U6 Pro",
-        "Dahua Full-Color Dome",
-        "Cáp Mạng Cat6A LS Vina"
-      ],
-      "client": "Gia đình Doanh nhân Trần Anh Tuấn",
-      "location": "Khu Đô Thị Phú Mỹ Hưng, Quận 7, TP.HCM",
-      "title": "Hạ Tầng Mạng Ẩn Tường & Camera Tàng Hình Biệt Thự Chateau",
-      "images": [
-        "/assets/projects/project-smart-villa.svg",
-        "/assets/projects/project-enterprise-network.svg"
-      ],
-      "isFeatured": true,
-      "id": "prj-luxury-villa",
-      "image": "/assets/projects/project-smart-villa.svg",
-      "description": "Yêu cầu tuyệt đối về mặt thẩm mỹ: không để lộ bất kỳ dây dẫn nào ra ngoài, mắt camera dạng vòm nhỏ gọn sơn trùng màu sơn trần thạch cao. Hệ thống WiFi chuyển vùng siêu mượt khi gia chủ đi từ phòng ngủ xuống sân vườn hay hồ bơi.",
-      "year": "2023",
+      "id": "prj-camera-wifi-co-thao",
+      "title": "Lắp Đặt 5 Camera WiFi Imou 4MP Cho Công Trình Nhà Phố",
       "category": "Biệt Thự & Nhà Phố",
+      "image": "/assets/projects/camera-wifi-nha-pho-01.jpg",
+      "images": [
+        "/assets/projects/camera-wifi-nha-pho-01.jpg",
+        "/assets/projects/camera-wifi-nha-pho-02.jpg"
+      ],
+      "scale": "5 camera WiFi Imou 4MP",
+      "completionDate": "Năm 2024",
+      "year": "2024",
+      "location": "Phú Nhuận, TP.HCM",
+      "client": "Khách hàng nhà phố",
+      "description": "Triển khai gói 5 camera WiFi Imou độ phân giải 4MP cho công trình nhà phố của cô Thảo. Phương án sử dụng camera WiFi giúp đáp ứng nhu cầu giám sát với cấu hình phù hợp quy mô công trình.",
+      "technologies": [
+        "Camera WiFi Imou 4MP"
+      ],
       "highlights": [
-        "Độ trễ Roaming < 30ms, gọi video call Messenger/Zalo khi di chuyển khắp biệt thự không bị ngắt",
-        "Bảo mật riêng tư tuyệt đối, vô hiệu hóa hoàn toàn cổng xem camera từ các bên trung gian",
-        "Tích hợp kết nối thông suốt với hệ sinh thái nhà thông minh Lumi/Aqara"
-      ]
+        "05 camera WiFi Imou độ phân giải 4MP",
+        "Ghi hình tại các vị trí trong và ngoài công trình"
+      ],
+      "isFeatured": false
     },
     {
-      "scale": "18 Cửa hàng · Quản lý tập trung trên Cloud · 2.500 lượt khách/ngày",
-      "completionDate": "Tháng 05/2023",
-      "technologies": [
-        "Ruijie Reyee Cloud",
-        "MikroTik RB750Gr3",
-        "VPN WireGuard",
-        "Hệ thống WiFi Marketing Cloud"
-      ],
-      "client": "Chuỗi F&B The Urban Coffee",
-      "location": "TP. Hồ Chí Minh, Biên Hòa & Vũng Tàu",
-      "title": "Mạng WiFi Marketing & VPN 18 Chi Nhánh Chuỗi The Urban Coffee",
+      "id": "prj-cao-su-viet-lao",
+      "title": "Bảo Trì Và Bổ Sung Camera Nhà Máy Cao Su Việt Lào",
+      "category": "Nhà Xưởng & Kho Bãi",
+      "image": "/assets/projects/cao-su-viet-lao-01.jpg",
       "images": [
-        "/assets/projects/project-retail-chain.svg",
-        "/assets/projects/project-server-rack.svg"
+        "/assets/projects/cao-su-viet-lao-01.jpg",
+        "/assets/projects/cao-su-viet-lao-02.jpg"
       ],
-      "isFeatured": true,
-      "id": "prj-coffee-chain",
-      "image": "/assets/projects/project-retail-chain.svg",
-      "description": "Thiết lập mạng nội bộ liên kết qua VPN WireGuard giúp các máy POS thanh toán gửi dữ liệu về kho trung tâm tức thì. Trang đăng nhập WiFi Marketing nhận diện thương hiệu giúp tăng 40% lượng người theo dõi Fanpage.",
-      "year": "2023",
-      "category": "Chuỗi Bán Lẻ & F&B",
+      "scale": "Sửa chữa hệ thống và bổ sung khoảng 8–10 camera cho nhà máy",
+      "completionDate": "Năm 2024",
+      "year": "2024",
+      "location": "Lào",
+      "client": "Nhà máy Cao su Việt Lào",
+      "description": "Thực hiện chuyến công tác tại nhà máy Cao su Việt Lào để sửa chữa hệ thống camera hiện có và lắp bổ sung khoảng 8–10 camera theo nhu cầu vận hành tại nhà máy.",
+      "technologies": [
+        "Hệ thống camera giám sát"
+      ],
       "highlights": [
-        "Khách hàng đông nghẹt giờ cao điểm (150 khách/quán) vẫn xem YouTube Full HD mượt mà",
-        "Dữ liệu đơn hàng POS và doanh thu được mã hóa đồng bộ an toàn theo thời gian thực",
-        "Quản lý từ xa toàn bộ 18 chi nhánh chỉ với 1 ứng dụng duy nhất trên điện thoại"
-      ]
+        "Sửa chữa hệ thống camera hiện hữu",
+        "Lắp bổ sung khoảng 8–10 camera tại nhà máy"
+      ],
+      "isFeatured": false
     },
     {
-      "scale": "Tủ Rack 42U · Hơn 240 Nốt Mạng Cat6 · Nguồn Dự Phòng UPS 3000VA Online",
-      "completionDate": "Tháng 02/2023",
-      "technologies": [
-        "Máy đo Fluke Networks",
-        "Patch Panel Cat6A CommScope",
-        "APC Smart-UPS 3000VA",
-        "Router MikroTik CCR"
-      ],
-      "client": "Công Ty Cổ Phần Logistics TransLog",
-      "location": "Khu Chế Xuất Tân Thuận, Quận 7, TP.HCM",
-      "title": "Chuẩn Hóa & Cải Tạo Tủ Rack Server Trung Tâm Logistics TransLog",
+      "id": "prj-camera-ptz-binh-an",
+      "title": "Thi Công Camera PTZ Hikvision Tại KCN Bình An",
+      "category": "Nhà Xưởng & Kho Bãi",
+      "image": "/assets/projects/camera-ptz-binh-an-02.jpg",
       "images": [
-        "/assets/projects/project-server-rack.svg",
-        "/assets/projects/project-enterprise-network.svg"
+        "/assets/projects/camera-ptz-binh-an-02.jpg"
       ],
-      "isFeatured": false,
-      "id": "prj-datacenter-rehab",
-      "image": "/assets/projects/project-server-rack.svg",
-      "description": "Cải tạo toàn diện tủ mạng đang trong tình trạng 'bụi bặm và mạng nhện dây nối'. Tiến hành đo kiểm, đánh mã nhãn màu chuẩn quốc tế, thay mới Patch Panel và cấu hình lại toàn bộ hệ thống nguồn dự phòng hoạt động tự động khi cúp điện.",
-      "year": "2023",
+      "scale": "Camera PTZ Hikvision cho công ty thành viên thuộc Việt Tiến",
+      "completionDate": "Năm 2024",
+      "year": "2024",
+      "location": "Khu công nghiệp Bình An, Bình Dương",
+      "client": "Công ty thành viên thuộc Tổng Công ty Việt Tiến",
+      "description": "Đội ngũ trực tiếp lắp đặt thiết bị camera PTZ Hikvision cho một công ty thành viên thuộc Tổng Công ty Việt Tiến tại Khu công nghiệp Bình An.",
+      "technologies": [
+        "Camera PTZ Hikvision"
+      ],
+      "highlights": [
+        "Thi công camera PTZ Hikvision tại KCN Bình An"
+      ],
+      "isFeatured": false
+    },
+    {
+      "id": "prj-hoi-truong-ha-tien",
+      "title": "Hệ Thống Camera Và WiFi Hội Trường Hà Tiên",
       "category": "Doanh Nghiệp & Văn Phòng",
+      "image": "/assets/projects/hoi-truong-ha-tien-01.jpg",
+      "images": [
+        "/assets/projects/hoi-truong-ha-tien-01.jpg",
+        "/assets/projects/hoi-truong-ha-tien-02.jpg",
+        "/assets/projects/hoi-truong-ha-tien-03.jpg"
+      ],
+      "scale": "32 camera 4MP · NVR 32 kênh · 4 Aruba Instant On AP · khoảng 1.500 m cáp",
+      "completionDate": "Năm 2024",
+      "year": "2024",
+      "location": "Hà Tiên",
+      "client": "Hội trường Hà Tiên",
+      "description": "Thi công hệ thống camera và WiFi cho hội trường tại Hà Tiên. Hệ thống gồm 32 camera 4MP, đầu ghi NVR 32 kênh, ổ cứng 8TB, hai switch PoE 16 cổng, bốn Aruba Instant On AP, một switch PoE Aruba, hai tủ rack treo 8U và khoảng 1.500 m cáp.",
+      "technologies": [
+        "32 camera 4MP",
+        "NVR 32 kênh",
+        "Ổ cứng 8TB",
+        "2 switch PoE 16 cổng",
+        "4 Aruba Instant On AP",
+        "Switch PoE Aruba",
+        "2 tủ rack treo 8U",
+        "Khoảng 1.500 m cáp"
+      ],
       "highlights": [
-        "Hoàn tất toàn bộ việc đi lại 240 nốt mạng trong 36 giờ cuối tuần, không làm gián đoạn ngày làm việc",
-        "Hệ thống nguồn UPS online chuyển mạch 0ms, máy chủ chạy liên tục khi điện lưới bị sự cố",
-        "Cung cấp bản đồ cổng mạng chi tiết, kỹ thuật viên mới của công ty nhìn vào là hiểu ngay"
-      ]
+        "32 camera 4MP",
+        "Kết hợp camera, thiết bị mạng và WiFi Aruba Instant On",
+        "Hai tủ rack treo 8U và khoảng 1.500 m cáp"
+      ],
+      "isFeatured": false
+    },
+    {
+      "id": "prj-nha-go-tien-giang",
+      "title": "Hệ Thống Camera Và WiFi Nhà Gỗ Tiền Giang",
+      "category": "Biệt Thự & Nhà Phố",
+      "image": "/assets/projects/nha-go-tien-giang-01.jpg",
+      "images": [
+        "/assets/projects/nha-go-tien-giang-01.jpg",
+        "/assets/projects/nha-go-tien-giang-02.jpg"
+      ],
+      "scale": "4 camera 4MP · NVR 8 kênh · 3 điểm truy cập WiFi NEC",
+      "completionDate": "Năm 2024",
+      "year": "2024",
+      "location": "Tiền Giang",
+      "client": "Nhà gỗ Tiền Giang",
+      "description": "Lắp đặt hệ thống camera và WiFi cho nhà gỗ tại Tiền Giang. Cấu hình gồm 4 camera 4MP, đầu ghi NVR 8 kênh, ổ cứng 1TB, một switch PoE 4 cổng và ba điểm truy cập WiFi NEC nội địa Nhật.",
+      "technologies": [
+        "4 camera 4MP",
+        "NVR 8 kênh",
+        "Ổ cứng 1TB",
+        "Switch PoE 4 cổng",
+        "3 AP WiFi NEC"
+      ],
+      "highlights": [
+        "Kết hợp hệ thống camera và WiFi",
+        "Ba AP WiFi NEC nội địa Nhật"
+      ],
+      "isFeatured": false
+    },
+    {
+      "id": "prj-viettien-nvr-64",
+      "title": "Nâng Cấp NVR 64 Kênh Và Lưu Trữ 60TB Cho Việt Tiến",
+      "category": "Doanh Nghiệp & Văn Phòng",
+      "image": "/assets/projects/nang-cap-viet-tien-01.jpg",
+      "images": [
+        "/assets/projects/nang-cap-viet-tien-01.jpg",
+        "/assets/projects/nang-cap-viet-tien-03.jpg"
+      ],
+      "scale": "NVR 64 kênh · Tổng dung lượng lưu trữ 60TB",
+      "completionDate": "Năm 2024",
+      "year": "2024",
+      "location": "TP.HCM",
+      "client": "Tổng Công ty Việt Tiến",
+      "description": "Nâng cấp hệ thống ghi hình tại Tổng Công ty Việt Tiến với đầu ghi NVR 64 kênh và tổng dung lượng lưu trữ 60TB.",
+      "technologies": [
+        "Đầu ghi NVR 64 kênh",
+        "Lưu trữ 60TB"
+      ],
+      "highlights": [
+        "Nâng cấp NVR 64 kênh",
+        "Tổng dung lượng lưu trữ 60TB"
+      ],
+      "isFeatured": false
+    },
+    {
+      "id": "prj-kho-viettien-hocmon",
+      "title": "Thi Công Hệ Thống 32 Camera Cho Kho Việt Tiến Hóc Môn",
+      "category": "Nhà Xưởng & Kho Bãi",
+      "image": "/assets/projects/kho-hocmon-01.jpg",
+      "images": [
+        "/assets/projects/kho-hocmon-01.jpg",
+        "/assets/projects/kho-hocmon-02.jpg"
+      ],
+      "scale": "32 camera giám sát kho",
+      "completionDate": "Năm 2025",
+      "year": "2025",
+      "location": "Hóc Môn, TP.HCM",
+      "client": "Kho Hóc Môn – Tổng Công ty Việt Tiến",
+      "description": "Trực tiếp thi công hệ thống 32 camera cho Kho Hóc Môn trực thuộc Tổng Công ty Việt Tiến.",
+      "technologies": [
+        "Hệ thống 32 camera giám sát"
+      ],
+      "highlights": [
+        "Thi công hệ thống 32 camera tại kho Hóc Môn"
+      ],
+      "isFeatured": false
+    },
+    {
+      "id": "prj-sushi-way-emart",
+      "title": "Thi Công Hạ Tầng 10 Camera Sushi Way – Emart Phan Văn Trị",
+      "category": "Chuỗi Bán Lẻ & F&B",
+      "image": "/assets/projects/sushi-way-emart-01.jpg",
+      "images": [
+        "/assets/projects/sushi-way-emart-01.jpg",
+        "/assets/projects/sushi-way-emart-02.jpg",
+        "/assets/projects/sushi-way-emart-04.jpg"
+      ],
+      "scale": "Hạ tầng hệ thống 10 camera",
+      "completionDate": "Năm 2025",
+      "year": "2025",
+      "location": "Emart Phan Văn Trị, TP.HCM",
+      "client": "Sushi Way",
+      "description": "Trực tiếp thi công hạ tầng cho hệ thống 10 camera tại cửa hàng Sushi Way ở Emart Phan Văn Trị.",
+      "technologies": [
+        "Hệ thống 10 camera",
+        "Hạ tầng camera"
+      ],
+      "highlights": [
+        "Thi công hạ tầng 10 camera tại cửa hàng Sushi Way"
+      ],
+      "isFeatured": false
     }
   ]
 }
