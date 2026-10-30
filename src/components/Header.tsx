@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ArrowUpRight, ExternalLink } from 'lucide-react';
+import { Phone, Menu, X, ArrowUpRight, ExternalLink, Moon, Sun } from 'lucide-react';
 import { profile } from '../config/profile';
 import { Logo } from './Logo';
 
 interface HeaderProps {
   onOpenConsultation?: () => void;
+  theme: 'dark' | 'light';
+  onToggleTheme: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onToggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -20,6 +22,20 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
     { label: 'Kinh Nghiệm', href: '#experience', id: 'experience' },
     { label: 'Liên Hệ', href: '#contact', id: 'contact' },
   ];
+
+  const themeLabel = theme === 'dark' ? 'Chuyển sang giao diện ban ngày' : 'Chuyển sang giao diện ban đêm';
+  const themeToggle = (
+    <button
+      onClick={onToggleTheme}
+      type="button"
+      aria-label={themeLabel}
+      aria-pressed={theme === 'light'}
+      title={themeLabel}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-800 bg-slate-900/80 text-slate-200 transition-colors hover:border-cyan-500/40 hover:text-cyan-400"
+    >
+      {theme === 'dark' ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
+    </button>
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,6 +102,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
           {/* Zone 3: Primary Actions (Desktop) */}
           <div className="hidden sm:flex items-center gap-2.5">
+            {themeToggle}
             <a
               href="/admin/index.html"
               target="_blank"
@@ -117,6 +134,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
           {/* Mobile Hamburger Button */}
           <div className="flex sm:hidden items-center gap-2">
+            {themeToggle}
             <a
               href={`tel:${profile.contact.phone}`}
               className="p-2 text-cyan-400 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800"

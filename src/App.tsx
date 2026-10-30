@@ -19,6 +19,13 @@ import { profile } from './config/profile';
 export default function App() {
   const [consultationOpen, setConsultationOpen] = useState(false);
   const [activeConsultationService, setActiveConsultationService] = useState('');
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    try {
+      return window.localStorage.getItem('hoanet-theme') === 'light' ? 'light' : 'dark';
+    } catch {
+      return 'dark';
+    }
+  });
 
   // Dynamically sync document title and meta from profile config
   useEffect(() => {
@@ -26,6 +33,15 @@ export default function App() {
       document.title = profile.seo.title;
     }
   }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    try {
+      window.localStorage.setItem('hoanet-theme', theme);
+    } catch {
+      // Keep the selected theme for this page even when storage is unavailable.
+    }
+  }, [theme]);
 
   const handleOpenConsultation = (serviceTitle?: string) => {
     if (serviceTitle) {
@@ -52,7 +68,11 @@ export default function App() {
       `}</style>
 
       {/* 1. Header with Top Bar Contract */}
-      <Header onOpenConsultation={() => handleOpenConsultation()} />
+      <Header
+        onOpenConsultation={() => handleOpenConsultation()}
+        theme={theme}
+        onToggleTheme={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')}
+      />
 
       {/* Main Content Sections */}
       <main className="flex-1">
