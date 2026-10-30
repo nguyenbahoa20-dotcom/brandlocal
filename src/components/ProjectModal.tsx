@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Calendar, MapPin, Building, Cpu, Camera, ChevronLeft, ChevronRight, Phone, MessageSquare } from 'lucide-react';
 import { ProjectItem, profile } from '../config/profile';
 import { resolveProjectImageUrl } from '../utils/githubProjects';
@@ -15,35 +15,51 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   onConsultProject,
 }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const thumbnailsRef = useRef<HTMLDivElement>(null);
+  const thumbnailRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Prepare images list (album) - displays all images from images field without any limit
+  const albumImages = (() => {
+    if (!project) return ['/assets/cover.svg'];
+    const list: string[] = [];
+    if (Array.isArray(project.images) && project.images.length > 0) {
+      project.images.forEach((img) => {
+        if (typeof img === 'string' && img.trim().length > 0) {
+          list.push(img.trim());
+        }
+      });
+    }
+    // If no images array but single image provided
+    if (list.length === 0 && project.image && typeof project.image === 'string' && project.image.trim().length > 0) {
+      list.push(project.image.trim());
+    }
+    return list.length > 0 ? list : ['/assets/cover.svg'];
+  })();
 
   // Reset active image when project changes
   useEffect(() => {
     setActiveImageIndex(0);
   }, [project]);
 
-  // Keep the selected thumbnail in view when navigating larger galleries.
+  // Auto-scroll active thumbnail into view when index changes
   useEffect(() => {
-    const activeThumbnail = thumbnailsRef.current?.querySelector<HTMLButtonElement>(
-      `[data-thumbnail-index="${activeImageIndex}"]`,
-    );
-    activeThumbnail?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  }, [activeImageIndex, project]);
+    const activeThumb = thumbnailRefs.current[activeImageIndex];
+    if (activeThumb) {
+      activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [activeImageIndex]);
 
   // Keyboard navigation (Esc to close, Left/Right for album photos)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!project) return;
-      const images = project.images && project.images.length > 0
-        ? project.images
-        : [project.image || '/assets/cover.svg'];
+      const count = albumImages.length;
 
       if (e.key === 'Escape') {
         onClose();
       } else if (e.key === 'ArrowLeft') {
-        setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+        setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : count - 1));
       } else if (e.key === 'ArrowRight') {
-        setActiveImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+        setActiveImageIndex((prev) => (prev < count - 1 ? prev + 1 : 0));
       }
     };
 
@@ -56,14 +72,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [project, onClose]);
+  }, [project, onClose, albumImages.length]);
 
   if (!project) return null;
-
-  // Prepare images list (album)
-  const albumImages = (project.images && project.images.length > 0)
-    ? project.images
-    : [project.image || '/assets/cover.svg'];
 
   const currentImage = albumImages[activeImageIndex] || albumImages[0];
 
@@ -173,11 +184,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
             {/* Thumbnails Strip (If more than 1 image) */}
             {albumImages.length > 1 && (
-              <div ref={thumbnailsRef} className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
                 {albumImages.map((img, idx) => (
                   <button
                     key={idx}
-                    data-thumbnail-index={idx}
+                    ref={(el) => {
+                      thumbnailRefs.current[idx] = el;
+                    }}
                     onClick={() => setActiveImageIndex(idx)}
                     type="button"
                     className={`relative w-20 h-14 rounded-lg overflow-hidden border-2 transition-all shrink-0 cursor-pointer ${

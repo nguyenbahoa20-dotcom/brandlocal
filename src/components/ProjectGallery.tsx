@@ -123,7 +123,9 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
         {/* Project Gallery Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => {
-            const albumCount = project.images?.length || 1;
+            const albumCount = (project.images && Array.isArray(project.images) && project.images.length > 0)
+              ? project.images.filter((img) => Boolean(img && typeof img === 'string' && img.trim())).length
+              : (project.image ? 1 : 0);
             const originalCover = project.image || project.images?.[0] || '/assets/cover.svg';
             const rawCover = resolveProjectImageUrl(originalCover);
 
