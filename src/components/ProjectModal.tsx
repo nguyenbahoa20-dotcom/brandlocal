@@ -256,7 +256,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           </div>
 
           {/* Highlights Checklist */}
-          {project.highlights && project.highlights.length > 0 && (
+          {Array.isArray(project.highlights) && project.highlights.length > 0 && (
             <div className="space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 font-mono">
                 Kết Quả Nghiệm Thu &amp; Điểm Nổi Bật
@@ -273,22 +273,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           )}
 
           {/* Technologies & Equipment Used */}
-          <div className="space-y-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 font-mono">
-              <Cpu className="w-4 h-4 text-cyan-400" />
-              <span>Thiết Bị &amp; Công Nghệ Sử Dụng</span>
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech, idx) => (
-                <span
-                  key={idx}
-                  className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-xs font-mono text-cyan-300"
-                >
-                  {tech}
-                </span>
-              ))}
+          {Array.isArray(project.technologies) && project.technologies.length > 0 && (
+            <div className="space-y-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 font-mono">
+                <Cpu className="w-4 h-4 text-cyan-400" />
+                <span>Thiết Bị &amp; Công Nghệ Sử Dụng</span>
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-xs font-mono text-cyan-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
         </div>
 

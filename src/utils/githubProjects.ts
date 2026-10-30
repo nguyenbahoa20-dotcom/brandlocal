@@ -6,17 +6,54 @@ export const RAW_GITHUB_BASE = `https://raw.githubusercontent.com/${GITHUB_REPO}
 export const GITHUB_PROJECTS_URL = `${RAW_GITHUB_BASE}/public/content/projects.json`;
 export const LOCAL_CONTENT_URL = '/content/projects.json';
 
-function normalizeProjects(list: unknown[]): ProjectItem[] {
-  return list.map((value) => {
-    const project = value && typeof value === 'object' ? value as Partial<ProjectItem> : {};
+export function normalizeProjects(list: unknown[]): ProjectItem[] {
+  if (!Array.isArray(list)) return [];
+  return list
+    .filter((value): value is Record<string, unknown> => {
+      if (!value || typeof value !== 'object') return false;
+      const p = value as Record<string, unknown>;
+      // Loại bỏ các bản ghi rỗng không có tiêu đề lẫn mã định danh (như draft rỗng)
+      return Boolean(p.title || p.id || p.description || p.scale);
+    })
+    .map((value, idx) => {
+      const project = value as Partial<ProjectItem>;
+      const id = project.id ? String(project.id) : `project-${idx + 1}`;
+      const title = project.title ? String(project.title) : 'Dự Án Đang Cập Nhật';
+      const category = project.category ? String(project.category) : 'Chuỗi Bán Lẻ & F&B';
+      const client = project.client ? String(project.client) : '';
+      const location = project.location ? String(project.location) : '';
+      const completionDate = (project.completionDate || project.year) ? String(project.completionDate || project.year) : '';
+      const scale = project.scale ? String(project.scale) : '';
+      const description = project.description ? String(project.description) : '';
+      const isFeatured = Boolean(project.isFeatured);
+      const image = typeof project.image === 'string' && project.image.trim() ? project.image.trim() : undefined;
+      const images = Array.isArray(project.images)
+        ? project.images.filter((img): img is string => typeof img === 'string' && img.trim().length > 0)
+        : [];
+      const technologies = Array.isArray(project.technologies)
+        ? project.technologies.filter((tech): tech is string => typeof tech === 'string' && tech.trim().length > 0)
+        : [];
+      const highlights = Array.isArray(project.highlights)
+        ? project.highlights.filter((h): h is string => typeof h === 'string' && h.trim().length > 0)
+        : [];
 
-    return {
-      ...project,
-      images: Array.isArray(project.images) ? project.images : [],
-      technologies: Array.isArray(project.technologies) ? project.technologies : [],
-      highlights: Array.isArray(project.highlights) ? project.highlights : [],
-    } as ProjectItem;
-  });
+      return {
+        ...project,
+        id,
+        title,
+        category,
+        client,
+        location,
+        completionDate,
+        scale,
+        description,
+        isFeatured,
+        image,
+        images,
+        technologies,
+        highlights,
+      } as ProjectItem;
+    });
 }
 
 /**
@@ -83,6 +120,6 @@ export async function fetchProjectsFromGitHub(): Promise<{
     console.warn('[HOANET] Không thể tải tệp /content/projects.json cục bộ:', err);
   }
 
-  // 3. Dự phòng cấp cuối: Dùng dữ liệu tĩnh từ profile.ts
-  return { projects: fallbackProjects, source: 'fallback' };
+  // 3. Dự phòng cấp cuối: Dùng dữ liệu tĩnh từ profile.ts (được chuẩn hóa an toàn)
+  return { projects: normalizeProjects(fallbackProjects), source: 'fallback' };
 }

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Camera, ArrowUpRight, MapPin, Sparkles, RotateCw, ExternalLink } from 'lucide-react';
 import { projects as defaultProjects, projectCategories, ProjectItem } from '../config/profile';
 import { ProjectModal } from './ProjectModal';
-import { fetchProjectsFromGitHub, resolveProjectImageUrl } from '../utils/githubProjects';
+import { fetchProjectsFromGitHub, resolveProjectImageUrl, normalizeProjects } from '../utils/githubProjects';
 
 interface ProjectGalleryProps {
   onConsultProject?: (projectTitle: string) => void;
 }
 
 export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject }) => {
-  const [projectsList, setProjectsList] = useState<ProjectItem[]>(defaultProjects);
+  const [projectsList, setProjectsList] = useState<ProjectItem[]>(() => normalizeProjects(defaultProjects));
   const [selectedCategory, setSelectedCategory] = useState<string>('Tất Cả');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -122,16 +122,18 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
 
         {/* Project Gallery Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => {
-            const albumCount = (project.images && Array.isArray(project.images) && project.images.length > 0)
-              ? project.images.filter((img) => Boolean(img && typeof img === 'string' && img.trim())).length
+          {filteredProjects.map((project, pIdx) => {
+            const images = Array.isArray(project.images) ? project.images : [];
+            const technologies = Array.isArray(project.technologies) ? project.technologies : [];
+            const albumCount = images.length > 0
+              ? images.filter((img) => Boolean(img && typeof img === 'string' && img.trim())).length
               : (project.image ? 1 : 0);
-            const originalCover = project.image || project.images?.[0] || '/assets/cover.svg';
+            const originalCover = project.image || images[0] || '/assets/cover.svg';
             const rawCover = resolveProjectImageUrl(originalCover);
 
             return (
               <div
-                key={project.id}
+                key={project.id || `project-${pIdx}`}
                 className="group rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col overflow-hidden hover:shadow-2xl hover:shadow-cyan-950/30"
               >
                 {/* Project Image Frame & Badges */}
@@ -209,7 +211,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
                   {/* Technologies Tags Chips */}
                   <div className="space-y-3 pt-1">
                     <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.slice(0, 3).map((tech, tIdx) => (
+                      {technologies.slice(0, 3).map((tech, tIdx) => (
                         <span
                           key={tIdx}
                           className="text-[10px] font-mono text-slate-300 bg-slate-950 border border-slate-800/90 px-2 py-0.5 rounded"
@@ -217,9 +219,9 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 3 && (
+                      {technologies.length > 3 && (
                         <span className="text-[10px] font-mono text-slate-400 bg-slate-950 border border-slate-800 px-1.5 py-0.5 rounded">
-                          +{project.technologies.length - 3} thiết bị
+                          +{technologies.length - 3} thiết bị
                         </span>
                       )}
                     </div>
