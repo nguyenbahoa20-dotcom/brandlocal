@@ -14,13 +14,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
+  // Shortened to the 4 essential anchors per brief
   const navItems = [
-    { label: 'Giới Thiệu', href: '#about', id: 'about' },
-    { label: 'Dịch Vụ', href: '#services', id: 'services' },
-    { label: 'Kỹ Năng', href: '#skills', id: 'skills' },
-    { label: 'Dự Án', href: '#projects', id: 'projects' },
-    { label: 'Kinh Nghiệm', href: '#experience', id: 'experience' },
-    { label: 'Liên Hệ', href: '#contact', id: 'contact' },
+    { label: 'Giới thiệu', href: '#about', id: 'about' },
+    { label: 'Dịch vụ', href: '#services', id: 'services' },
+    { label: 'Công trình', href: '#projects', id: 'projects' },
+    { label: 'Liên hệ', href: '#contact', id: 'contact' },
   ];
 
   const themeLabel = theme === 'dark' ? 'Chuyển sang giao diện ban ngày' : 'Chuyển sang giao diện ban đêm';
@@ -31,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
       aria-label={themeLabel}
       aria-pressed={theme === 'light'}
       title={themeLabel}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-800 bg-slate-900/80 text-slate-200 transition-colors hover:border-cyan-500/40 hover:text-cyan-400"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/80 text-slate-200 transition-colors hover:border-cyan-500/40 hover:text-cyan-400 cursor-pointer"
     >
       {theme === 'dark' ? <Sun className="h-4 w-4" aria-hidden="true" /> : <Moon className="h-4 w-4" aria-hidden="true" />}
     </button>
@@ -39,11 +38,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
 
-      // Scrollspy active section
       const sections = ['hero', 'about', 'services', 'skills', 'projects', 'experience', 'contact'];
-      const scrollPos = window.scrollY + 120;
+      const scrollPos = window.scrollY + 140;
 
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -66,26 +64,27 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'glass-header border-b border-slate-800/80 shadow-lg shadow-black/30 py-3'
-          : 'bg-transparent py-5'
+          ? 'glass-header border-b border-slate-800/80 shadow-md py-2.5 sm:py-3'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Zone 1: Brand / Logo */}
+        <div className="flex items-center justify-between gap-4">
+          
+          {/* Brand Logo */}
           <div className="flex-shrink-0">
             <Logo size="md" />
           </div>
 
-          {/* Zone 2: Navigation Links (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Desktop Navigation: Shortened to 4 core anchors */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`px-3.5 py-1.5 text-xs font-medium tracking-wide uppercase transition-colors relative ${
+                  className={`px-3 py-2 text-sm font-medium transition-colors relative rounded-md ${
                     isActive
                       ? 'text-cyan-400 font-semibold'
                       : 'text-slate-300 hover:text-white'
@@ -93,51 +92,57 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[2px] bg-cyan-400 rounded-full" />
+                    <span className="absolute bottom-1 left-3 right-3 h-[2px] bg-cyan-400 rounded-full" />
                   )}
                 </a>
               );
             })}
           </nav>
 
-          {/* Zone 3: Primary Actions (Desktop) */}
+          {/* Desktop Right Action Area */}
           <div className="hidden sm:flex items-center gap-2.5">
             {themeToggle}
+
+            {/* CMS Access */}
             <a
               href="/admin/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-cyan-300 hover:text-white transition-colors border border-cyan-500/40 rounded-lg bg-cyan-950/50 hover:bg-cyan-900/70 cursor-pointer"
-              title="Truy cập Decap CMS quản trị dự án"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-cyan-300 hover:text-white transition-colors border border-cyan-500/40 rounded-lg bg-cyan-950/50 hover:bg-cyan-900/60 cursor-pointer"
+              title="Mở Decap CMS để quản lý hình ảnh và dự án"
             >
               <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
               <span>Quản trị CMS</span>
             </a>
 
+            {/* Quick Call Icon (no visible numbers on desktop per earlier constraint) */}
             <a
               href={`tel:${profile.contact.phone}`}
-              className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-medium text-slate-200 hover:text-white transition-colors border border-slate-800 rounded-lg bg-slate-900/60 hover:bg-slate-800"
-              aria-label="Gọi điện thoại"
+              className="inline-flex items-center justify-center p-2 text-slate-200 hover:text-white transition-colors border border-slate-700/80 rounded-lg bg-slate-900/70 hover:bg-slate-800"
+              aria-label="Gọi điện thoại trực tiếp"
+              title={`Gọi trực tiếp: ${profile.contact.phoneDisplay}`}
             >
-              <Phone className="w-3.5 h-3.5 text-cyan-400" />
+              <Phone className="w-4 h-4 text-cyan-400" />
             </a>
 
+            {/* Primary Action Button */}
             <button
               onClick={onOpenConsultation}
               type="button"
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:scale-[0.98] rounded-lg transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 active:scale-[0.98] rounded-lg transition-all shadow-md shadow-cyan-500/20 whitespace-nowrap cursor-pointer"
             >
               <span>Yêu Cầu Khảo Sát</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Action Controls */}
           <div className="flex sm:hidden items-center gap-2">
             {themeToggle}
+            
             <a
               href={`tel:${profile.contact.phone}`}
-              className="p-2 text-cyan-400 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800"
+              className="p-2 text-cyan-400 bg-slate-900 border border-slate-700/80 rounded-lg hover:bg-slate-800"
               aria-label="Gọi nhanh"
             >
               <Phone className="w-4 h-4" />
@@ -146,30 +151,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               type="button"
-              className="p-2 text-slate-300 hover:text-white bg-slate-900 border border-slate-800 rounded-lg"
+              className="p-2 text-slate-300 hover:text-white bg-slate-900 border border-slate-700/80 rounded-lg cursor-pointer"
               aria-label={mobileMenuOpen ? 'Đóng menu' : 'Mở menu'}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* Mobile Menu Drawer / Dropdown */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="sm:hidden glass-header border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 mt-3 animate-in fade-in slide-in-from-top-3 duration-200">
-          <div className="grid grid-cols-2 gap-2 pt-1">
+        <div className="sm:hidden glass-header border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 mt-2.5 animate-in fade-in slide-in-from-top-2 duration-150 shadow-xl">
+          <nav className="grid grid-cols-2 gap-2 pt-1">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-slate-800/80 border border-slate-800/60 transition-colors"
+                className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-slate-800/80 border border-slate-800/60 transition-colors text-center"
               >
                 {item.label}
               </a>
             ))}
-          </div>
+          </nav>
 
           <div className="pt-2 border-t border-slate-800/80 space-y-2">
             <a
@@ -177,10 +183,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-cyan-300 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/40 rounded-lg transition-colors cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-cyan-300 bg-cyan-950/70 hover:bg-cyan-900 border border-cyan-500/40 rounded-lg transition-colors cursor-pointer"
             >
               <ExternalLink className="w-4 h-4 text-cyan-400" />
-              <span>Vào Bảng Quản Trị Decap CMS</span>
+              <span>Quản trị CMS Decap</span>
             </a>
 
             <button
@@ -189,9 +195,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
                 onOpenConsultation?.();
               }}
               type="button"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-all"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-all cursor-pointer"
             >
-              <span>Yêu Cầu Khảo Sát &amp; Báo Giá</span>
+              <span>Yêu Cầu Khảo Sát Tận Nơi</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
 
@@ -201,7 +207,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors"
             >
-              <span>Nhắn Zalo Ngay</span>
+              <span>Nhắn Zalo Tư Vấn</span>
             </a>
           </div>
         </div>
