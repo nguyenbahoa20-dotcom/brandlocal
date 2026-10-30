@@ -103,18 +103,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, theme, onTog
           <div className="hidden sm:flex items-center gap-2.5">
             {themeToggle}
 
-            {/* CMS Access */}
-            <a
-              href="/admin/index.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-cyan-300 hover:text-white transition-colors border border-cyan-500/40 rounded-lg bg-cyan-950/50 hover:bg-cyan-900/60 cursor-pointer"
-              title="Mở Decap CMS để quản lý hình ảnh và dự án"
-            >
-              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Quản trị CMS</span>
-            </a>
-
             {/* Quick Call Icon (no visible numbers on desktop per earlier constraint) */}
             <a
               href={`tel:${profile.contact.phone}`}

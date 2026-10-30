@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Radio, Camera } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import { profile } from '../config/profile';
 
 interface LogoProps {
@@ -18,8 +18,8 @@ export const Logo: React.FC<LogoProps> = ({
 
   const sizeClasses = {
     sm: 'h-8 text-base',
-    md: 'h-10 text-lg',
-    lg: 'h-12 text-xl',
+    md: 'h-9 sm:h-10 text-lg',
+    lg: 'h-11 sm:h-12 text-xl',
   };
 
   const iconSizes = {
@@ -35,13 +35,15 @@ export const Logo: React.FC<LogoProps> = ({
       aria-label={profile.brandName}
     >
       {hasLogoImage ? (
-        <img
-          src={profile.media.logo}
-          alt={profile.media.logoAlt || profile.brandName}
-          className={`${sizeClasses[size]} w-auto object-contain`}
-          onError={() => setImageError(true)}
-          referrerPolicy="no-referrer"
-        />
+        <span className="logo-wrapper inline-flex items-center justify-center transition-all">
+          <img
+            src={profile.media.logo}
+            alt={profile.media.logoAlt || profile.brandName}
+            className={`${sizeClasses[size]} w-auto object-contain block`}
+            onError={() => setImageError(true)}
+            referrerPolicy="no-referrer"
+          />
+        </span>
       ) : (
         /* Fallback: High-tech Monogram / Icon Logo */
         <div className="flex items-center gap-3">
