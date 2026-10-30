@@ -291,6 +291,33 @@
       "highlights": [
         "Thi công hạ tầng 10 camera tại cửa hàng Sushi Way"
       ]
+    },
+    {
+      "isFeatured": false
+    },
+    {
+      "scale": "9 camera PoE · 8 loa âm trần TOA · 1 amply TOA · 2 thiết bị WiFi",
+      "completionDate": "Tháng 10/2026",
+      "technologies": [
+        "9 camera IP PoE",
+        "8 loa âm trần TOA",
+        "1 amply TOA",
+        "1 Access Point WiFi Grandstream",
+        "1 bộ phát WiFi TP-Link AX1800"
+      ],
+      "client": "Việt Tiến House",
+      "location": "Đà Nẵng",
+      "title": "Thi Công Camera, Âm Thanh TOA & WiFi Việt Tiến House Đà Nẵng",
+      "isFeatured": false,
+      "id": "prj-viettien-house-da-nang",
+      "description": "Triển khai giải pháp an ninh, âm thanh và kết nối WiFi cho công trình Việt Tiến House tại Đà Nẵng. Hệ thống gồm 9 camera PoE phục vụ giám sát; 8 loa âm trần TOA kết hợp 1 amply TOA cho nhu cầu phát âm thanh; cùng 1 thiết bị Access Point WiFi Grandstream và 1 bộ phát WiFi TP-Link AX1800. Giải pháp được triển khai theo nhu cầu sử dụng thực tế của công trình, kết hợp các hạng mục camera, âm thanh và WiFi trên cùng một phương án hạ tầng.",
+      "year": "2026",
+      "category": "Doanh Nghiệp & Văn Phòng",
+      "highlights": [
+        "9 camera PoE kết hợp giải pháp âm thanh và WiFi cho Việt Tiến House tại Đà Nẵng.",
+        "8 loa âm trần TOA kết hợp amply TOA, bố trí âm thanh gọn gàng trong không gian.",
+        "Tích hợp Access Point WiFi Grandstream và router TP-Link AX1800 theo nhu cầu kết nối công trình."
+      ]
     }
   ]
 }
