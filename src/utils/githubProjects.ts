@@ -6,6 +6,19 @@ export const RAW_GITHUB_BASE = `https://raw.githubusercontent.com/${GITHUB_REPO}
 export const GITHUB_PROJECTS_URL = `${RAW_GITHUB_BASE}/public/content/projects.json`;
 export const LOCAL_CONTENT_URL = '/content/projects.json';
 
+function normalizeProjects(list: unknown[]): ProjectItem[] {
+  return list.map((value) => {
+    const project = value && typeof value === 'object' ? value as Partial<ProjectItem> : {};
+
+    return {
+      ...project,
+      images: Array.isArray(project.images) ? project.images : [],
+      technologies: Array.isArray(project.technologies) ? project.technologies : [],
+      highlights: Array.isArray(project.highlights) ? project.highlights : [],
+    } as ProjectItem;
+  });
+}
+
 /**
  * Chuyển đổi đường dẫn ảnh tương đối thành Raw GitHub URL để ảnh mới commit
  * lập tức hiển thị được trên website mà không cần AI Studio build lại.
@@ -49,7 +62,7 @@ export async function fetchProjectsFromGitHub(): Promise<{
       const data = await response.json();
       const list = Array.isArray(data) ? data : data.projects;
       if (Array.isArray(list) && list.length > 0) {
-        return { projects: list, source: 'github' };
+        return { projects: normalizeProjects(list), source: 'github' };
       }
     }
   } catch (err) {
@@ -63,7 +76,7 @@ export async function fetchProjectsFromGitHub(): Promise<{
       const data = await localRes.json();
       const list = Array.isArray(data) ? data : data.projects;
       if (Array.isArray(list) && list.length > 0) {
-        return { projects: list, source: 'local_file' };
+        return { projects: normalizeProjects(list), source: 'local_file' };
       }
     }
   } catch (err) {
