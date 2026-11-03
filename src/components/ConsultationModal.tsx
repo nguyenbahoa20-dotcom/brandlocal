@@ -67,10 +67,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-lg rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl overflow-hidden z-10 my-8">
+      <div className="relative w-full max-w-lg rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl overflow-hidden z-10 my-auto max-h-[90vh] flex flex-col">
         
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950">
+        <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-slate-800 bg-slate-950 shrink-0">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
@@ -81,14 +81,15 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           <button
             onClick={onClose}
             type="button"
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 transition-colors cursor-pointer"
+            aria-label="Đóng"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Modal Content */}
-        <div className="p-6">
+        <div className="p-5 sm:p-6 overflow-y-auto flex-1">
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
