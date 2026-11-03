@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle, Star, Quote, ChevronDown } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, CheckCircle, ClipboardCheck, Search, Wrench, ChevronDown } from 'lucide-react';
 import { profile } from '../config/profile';
 
 export const Experience: React.FC = () => {
@@ -10,17 +10,16 @@ export const Experience: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
           <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-cyan-400 font-mono">
-            <span>KINH NGHIỆM &amp; ĐÁNH GIÁ</span>
+            <span>KINH NGHIỆM &amp; QUY TRÌNH</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight text-balance">
-            Kinh Nghiệm Thực Chiến &amp; Phản Hồi Từ Khách Hàng
+            Làm việc rõ ràng từ khảo sát đến bàn giao
           </h2>
           <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
-            Hơn 8 năm kinh nghiệm thực chiến trong lĩnh vực viễn thông và an ninh giám sát, tạo dựng uy tín từ sự hài lòng của từng gia đình và doanh nghiệp.
+            Bạn biết trước phương án, hạng mục thực hiện và cách nghiệm thu hệ thống.
           </p>
         </div>
 
-        {/* 2-Column Layout: Left = Experience Timeline (7 cols), Right = Testimonials (5 cols) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
           {/* Left Column: Timeline */}
@@ -91,43 +90,21 @@ export const Experience: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Testimonials */}
+          {/* Practical process instead of anonymous or unverifiable testimonials. */}
           <div className="lg:col-span-5 space-y-4">
             <h3 className="text-lg font-bold text-white flex items-center gap-2 pb-1">
-              <Quote className="w-5 h-5 text-cyan-400" />
-              <span>Khách Hàng Nói Về Dịch Vụ</span>
+              <ClipboardCheck className="w-5 h-5 text-cyan-400" />
+              <span>Quy Trình Triển Khai</span>
             </h3>
-
-            <div className="space-y-4">
-              {profile.testimonials.map((test, index) => (
-                <div
-                  key={index}
-                  className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3"
-                >
-                  {/* Star Rating */}
-                  <div className="flex items-center gap-1 text-amber-400">
-                    {Array.from({ length: test.rating }).map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-                    ))}
-                  </div>
-
-                  {/* Comment */}
-                  <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
-                    &ldquo;{test.content}&rdquo;
-                  </p>
-
-                  {/* Author Meta */}
-                  <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-bold text-white">{test.name}</div>
-                      <div className="text-[11px] text-slate-400">
-                        {test.role} · <span className="text-slate-300">{test.organization}</span>
-                      </div>
-                    </div>
-                    <span className="text-[10px] font-mono text-cyan-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
-                      {test.projectRef}
-                    </span>
-                  </div>
+            <div className="space-y-3">
+              {[
+                { icon: Search, title: '01 · Khảo sát nhu cầu', detail: 'Ghi nhận phạm vi, vị trí lắp đặt và ưu tiên của công trình.' },
+                { icon: ClipboardCheck, title: '02 · Thống nhất phương án', detail: 'Giải thích thiết bị, hạng mục và dự toán trước khi thi công.' },
+                { icon: Wrench, title: '03 · Thi công và bàn giao', detail: 'Kiểm tra vận hành, hướng dẫn sử dụng và thông tin hỗ trợ sau lắp đặt.' },
+              ].map(({ icon: Icon, title, detail }) => (
+                <div key={title} className="flex gap-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-950 text-cyan-400"><Icon className="h-4 w-4" /></span>
+                  <div><h4 className="text-sm font-semibold text-white">{title}</h4><p className="mt-1 text-xs leading-relaxed text-slate-400">{detail}</p></div>
                 </div>
               ))}
             </div>

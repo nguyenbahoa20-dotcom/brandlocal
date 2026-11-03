@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Phone, ShieldCheck, MapPin, CheckCircle2, MessageSquare, Wrench, Wifi, Camera, ChevronDown } from 'lucide-react';
+import { ArrowRight, Phone, ShieldCheck, MapPin, CheckCircle2, Wrench, Wifi, Camera, ChevronDown } from 'lucide-react';
 import { profile } from '../config/profile';
 
 interface HeroProps {
@@ -33,12 +33,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
             {/* Headline in plain Vietnamese */}
             <div className="space-y-3">
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.2] text-balance">
-                Lắp Đặt Camera An Ninh, Mạng WiFi Nhà Phố &amp; Cửa Hàng
+                Camera an ninh &amp; WiFi ổn định cho nhà ở, cửa hàng và doanh nghiệp
               </h1>
               
               {/* Short plain Vietnamese 1-2 sentence summary for everyday customers */}
               <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed text-balance max-w-2xl mx-auto lg:mx-0">
-                Chuyên tư vấn và lắp đặt camera an ninh rõ nét, phủ sóng WiFi mạnh mẽ và hệ thống mạng ổn định cho nhà phố, quán kinh doanh và văn phòng. Thi công thẩm mỹ, đường dây gọn gàng và hỗ trợ kỹ thuật tận tâm.
+                Khảo sát tận nơi, đề xuất phương án theo nhu cầu và ngân sách, trực tiếp thi công tại TP.HCM và khu vực lân cận.
               </p>
 
               {/* Accessible collapsed disclosure for dense technical brands & protocols */}
@@ -85,15 +85,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
                 <span>Gọi Trực Tiếp: {profile.contact.phoneDisplay}</span>
               </a>
 
-              <a
-                href={profile.contact.zalo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-semibold text-sm text-blue-400 hover:text-blue-300 bg-blue-950/40 hover:bg-blue-900/50 border border-blue-900/60 transition-colors"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>Nhắn Zalo</span>
-              </a>
             </div>
 
             {/* At most 3 short factual benefits (reduced from 4 for mobile simplicity) */}
