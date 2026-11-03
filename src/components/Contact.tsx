@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MessageSquare, MapPin, Clock, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { profile } from '../config/profile';
+import { buildContactRequestMailto } from '../utils/contactRequest';
 
 interface ContactProps {
   prefilledService?: string;
@@ -22,10 +23,9 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService = '' }) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 400);
+    window.location.href = buildContactRequestMailto({ name: formData.name, phone: formData.phone, location: formData.address, service: formData.service, message: formData.notes });
+    setLoading(false);
+    setSubmitted(true);
   };
 
   return (
@@ -278,10 +278,10 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService = '' }) => {
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-white">Đã Tiếp Nhận Yêu Cầu Khảo Sát!</h3>
+                  <h3 className="text-xl font-bold text-white">Email Yêu Cầu Đã Được Soạn</h3>
                   
                   <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Cảm ơn <strong className="text-white">{formData.name}</strong>. Tôi đã nhận được thông tin về nhu cầu <span className="text-cyan-400">{formData.service}</span> và sẽ gọi lại cho bạn qua số điện thoại <span className="font-mono text-cyan-300 font-semibold">{formData.phone}</span> để hẹn giờ khảo sát thực tế.
+                    Ứng dụng email đã được mở với thông tin yêu cầu. Vui lòng kiểm tra và bấm Gửi để tôi nhận được nội dung. Nếu ứng dụng email không mở, vui lòng gọi trực tiếp.
                   </p>
 
                   <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
