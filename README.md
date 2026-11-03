@@ -42,7 +42,7 @@ backend:
 2. Bấm nút **Login with GitHub** để đăng nhập qua tài khoản GitHub đã được phân quyền quản trị repo.
 3. Trong giao diện CMS:
    * Chọn mục **Dự Án Công Trình** -> **Danh Sách Dự Án Công Trình**.
-   * Bạn sẽ thấy danh sách 6 dự án hiện có được đọc từ `public/content/projects.json`.
+   * Bạn sẽ thấy danh sách công trình hiện có được đọc từ `public/content/projects.json`.
    * **Thêm dự án mới**: Bấm **Add projects**, điền đầy đủ các trường:
      * *ID*: Mã định danh viết liền không dấu (VD: `prj-cong-trinh-moi`).
      * *Tên công trình*: VD: *Hạ Tầng Mạng & Camera Tòa Nhà Văn Phòng ABC*.

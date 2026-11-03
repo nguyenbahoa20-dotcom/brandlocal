@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, Phone, Calendar } from 'lucide-react';
 import { profile } from '../config/profile';
+import { buildContactRequestMailto } from '../utils/contactRequest';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -52,10 +53,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 400);
+    window.location.href = buildContactRequestMailto({ name: formData.name, phone: formData.phone, location: formData.location, service: formData.service, message: formData.message });
+    setLoading(false);
+    setSubmitted(true);
   };
 
   return (
@@ -202,9 +202,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div className="w-14 h-14 rounded-full bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mx-auto">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-bold text-white">Tiếp Nhận Thành Công!</h3>
+              <h3 className="text-xl font-bold text-white">Email Yêu Cầu Đã Được Soạn</h3>
               <p className="text-xs text-slate-300 leading-relaxed max-w-sm mx-auto">
-                Cảm ơn bạn <strong className="text-white">{formData.name}</strong>. Tôi sẽ liên hệ số điện thoại <span className="text-cyan-400 font-mono font-semibold">{formData.phone}</span> để hẹn lịch khảo sát thực tế.
+                Ứng dụng email đã được mở với thông tin khảo sát. Vui lòng kiểm tra và bấm Gửi để yêu cầu được chuyển đến tôi. Nếu email không mở, hãy gọi trực tiếp theo số bên dưới.
               </p>
               <button
                 onClick={onClose}
