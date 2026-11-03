@@ -79,6 +79,9 @@ export default function App() {
         {/* 2. Hero Section */}
         <Hero onOpenConsultation={() => handleOpenConsultation()} />
 
+        {/* Show real project evidence early, following enterprise solution-story layouts. */}
+        <ProjectGallery onConsultProject={(project) => handleOpenConsultation(project)} />
+
         {/* 3. About Section */}
         <About />
 
@@ -88,10 +91,7 @@ export default function App() {
         {/* 5. Skills & Equipment Section */}
         <Skills />
 
-        {/* 6. Projects & Album Showcase Section */}
-        <ProjectGallery onConsultProject={(project) => handleOpenConsultation(project)} />
-
-        {/* 7. Experience Timeline & Testimonials Section */}
+        {/* 7. Experience Timeline & Project Delivery Process */}
         <Experience />
 
         {/* 8. Contact & Survey Lead Capture Section */}
