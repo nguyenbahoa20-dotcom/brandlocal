@@ -1,0 +1,49 @@
+{
+  "title": "Hạ Tầng Mạng & Camera Tòa Nhà Văn Phòng Việt Tiến 97 Đức Giang",
+  "details": {
+    "id": "prj-viettien-hanoi",
+    "category": "Doanh Nghiệp & Văn Phòng",
+    "location": "97 Đức Giang, Long Biên, Hà Nội",
+    "completionDate": "Tháng 09/2026",
+    "year": "2026",
+    "client": "Tổng Công Ty CP May Việt Tiến (Chi Nhánh Văn Phòng Hà Nội)",
+    "isFeatured": true,
+    "sortOrder": 2
+  },
+  "photos": {
+    "image": "/assets/projects/97dg.jpeg",
+    "images": [
+      "/assets/projects/img_20260901_162100.jpg",
+      "/assets/projects/img_20260912_142121.jpg",
+      "/assets/projects/img_20260915_094548.jpg",
+      "/assets/projects/img_20260914_094857.jpg",
+      "/assets/projects/img_20260914_095056.jpg",
+      "/assets/projects/img_20260912_142825.jpg",
+      "/assets/projects/img_20260916_095041.jpg",
+      "/assets/projects/img_20260916_095133.jpg",
+      "/assets/projects/img_20260916_162037.jpg",
+      "/assets/projects/img_20260916_185345.jpg",
+      "/assets/projects/1780566018208_141819511635635693_141819511635635693_981a388dc90367557a3352f7cce17778.jpg",
+      "/assets/projects/1780565908410_141819511635635693_141819511635635693_7bc7afaa1b9951f49a3551ff26a377df.jpg",
+      "/assets/projects/1780565908377_141819511635635693_141819511635635693_78bbf559375a7746c90de75f24e1af92.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "Tòa Nhà Văn Phòng Hiện Đại · 59 Camera IP 4K · Hệ Thống WiFi Doanh Nghiệp Chịu Tải Cao",
+    "description": "Tư vấn giải pháp, thiết kế sơ đồ kỹ thuật và thi công trọn gói hệ thống hạ tầng mạng LAN/WiFi văn phòng cùng hệ thống camera an ninh giám sát IP độ phân giải cao tại tòa nhà văn phòng Việt Tiến (97 Đức Giang, Long Biên, Hà Nội). Quy hoạch tủ mạng trung tâm chuẩn Rack, đi dây âm thẩm mỹ và cấu hình bảo mật đa tầng."
+  },
+  "equipment": {
+    "technologies": [
+      "Hikvision IP ColorVu 4K",
+      "Vigor Draytek 2927",
+      "Switch Hikvision PoE 24 Port",
+      "Aruba 335 Enterprise",
+      "Tủ Rack 27U & Thanh PDU"
+    ],
+    "highlights": [
+      "Phủ sóng WiFi toàn diện các tầng văn phòng, đảm bảo đường truyền họp trực tuyến & hội nghị video mượt mà",
+      "Hệ thống 59 camera IP sắc nét bao quát sảnh lễ tân, khu vực văn phòng mở, hành lang, phòng máy chủ và bãi đỗ xe",
+      "Quy hoạch tủ Rack mạng tiêu chuẩn với patch panel và đánh số port chi tiết, thuận tiện cho việc vận hành và nâng cấp"
+    ]
+  }
+}

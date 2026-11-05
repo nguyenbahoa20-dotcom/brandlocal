@@ -1,0 +1,31 @@
+{
+  "title": "Thi Công Hệ Thống 32 Camera Cho Kho Việt Tiến Hóc Môn",
+  "details": {
+    "id": "prj-kho-viettien-hocmon",
+    "category": "Nhà Xưởng & Kho Bãi",
+    "location": "Hóc Môn, TP.HCM",
+    "completionDate": "Năm 2025",
+    "year": "2025",
+    "client": "Kho Hóc Môn – Tổng Công ty Việt Tiến",
+    "sortOrder": 9
+  },
+  "photos": {
+    "image": "/assets/projects/kho-hocmon-01.jpg",
+    "images": [
+      "/assets/projects/kho-hocmon-01.jpg",
+      "/assets/projects/kho-hocmon-02.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "32 camera giám sát kho",
+    "description": "Trực tiếp thi công hệ thống 32 camera cho Kho Hóc Môn trực thuộc Tổng Công ty Việt Tiến."
+  },
+  "equipment": {
+    "technologies": [
+      "Hệ thống 32 camera giám sát"
+    ],
+    "highlights": [
+      "Thi công hệ thống 32 camera tại kho Hóc Môn"
+    ]
+  }
+}

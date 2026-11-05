@@ -1,0 +1,32 @@
+{
+  "title": "Thi Công Camera PTZ Hikvision Tại KCN Bình An",
+  "details": {
+    "id": "prj-camera-ptz-binh-an",
+    "category": "Nhà Xưởng & Kho Bãi",
+    "location": "Khu công nghiệp Bình An, Bình Dương",
+    "completionDate": "Năm 2024",
+    "year": "2024",
+    "client": "Công ty thành viên thuộc Tổng Công ty Việt Tiến",
+    "sortOrder": 5
+  },
+  "photos": {
+    "image": "/assets/projects/dsc_0331.jpg",
+    "images": [
+      "/assets/projects/dsc_0331.jpg",
+      "/assets/projects/dsc_0335.jpg",
+      "/assets/projects/dsc_0337.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "Camera PTZ Hikvision cho công ty thành viên thuộc Việt Tiến",
+    "description": "Đội ngũ trực tiếp lắp đặt thiết bị camera PTZ Hikvision cho một công ty thành viên thuộc Tổng Công ty Việt Tiến tại Khu công nghiệp Bình An."
+  },
+  "equipment": {
+    "technologies": [
+      "Camera PTZ Hikvision"
+    ],
+    "highlights": [
+      "Thi công camera PTZ Hikvision tại KCN Bình An"
+    ]
+  }
+}

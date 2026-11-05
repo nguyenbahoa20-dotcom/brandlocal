@@ -1,0 +1,33 @@
+{
+  "title": "Thi Công Hạ Tầng 10 Camera Sushi Way – Emart Phan Văn Trị",
+  "details": {
+    "id": "prj-sushi-way-emart",
+    "category": "Chuỗi Bán Lẻ & F&B",
+    "location": "Emart Phan Văn Trị, TP.HCM",
+    "completionDate": "Năm 2025",
+    "year": "2025",
+    "client": "Sushi Way",
+    "sortOrder": 10
+  },
+  "photos": {
+    "image": "/assets/projects/sushi-way-emart-01.jpg",
+    "images": [
+      "/assets/projects/sushi-way-emart-01.jpg",
+      "/assets/projects/sushi-way-emart-02.jpg",
+      "/assets/projects/sushi-way-emart-04.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "Hạ tầng hệ thống 10 camera",
+    "description": "Trực tiếp thi công hạ tầng cho hệ thống 10 camera tại cửa hàng Sushi Way ở Emart Phan Văn Trị."
+  },
+  "equipment": {
+    "technologies": [
+      "Hệ thống 10 camera",
+      "Hạ tầng camera"
+    ],
+    "highlights": [
+      "Thi công hạ tầng 10 camera tại cửa hàng Sushi Way"
+    ]
+  }
+}

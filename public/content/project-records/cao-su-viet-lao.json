@@ -1,0 +1,34 @@
+{
+  "title": "Bảo Trì Và Bổ Sung Camera Nhà Máy Cao Su Việt Lào",
+  "details": {
+    "id": "prj-cao-su-viet-lao",
+    "category": "Nhà Xưởng & Kho Bãi",
+    "location": "Lào",
+    "completionDate": "Năm 2024",
+    "year": "2024",
+    "client": "Nhà máy Cao su Việt Lào",
+    "sortOrder": 4
+  },
+  "photos": {
+    "image": "/assets/projects/cao-su-viet-lao-01.jpg",
+    "images": [
+      "/assets/projects/cao-su-viet-lao-01.jpg",
+      "/assets/projects/cao-su-viet-lao-02.jpg",
+      "/assets/projects/dsc_0003_091453.jpg",
+      "/assets/projects/dsc_0006.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "Sửa chữa hệ thống và bổ sung khoảng 8–10 camera cho nhà máy",
+    "description": "Thực hiện chuyến công tác tại nhà máy Cao su Việt Lào để sửa chữa hệ thống camera hiện có và lắp bổ sung khoảng 8–10 camera theo nhu cầu vận hành tại nhà máy."
+  },
+  "equipment": {
+    "technologies": [
+      "Hệ thống camera giám sát"
+    ],
+    "highlights": [
+      "Sửa chữa hệ thống camera hiện hữu",
+      "Lắp bổ sung khoảng 8–10 camera tại nhà máy"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "title": "Hệ Thống Camera Và WiFi Nhà Gỗ Tiền Giang",
+  "details": {
+    "id": "prj-nha-go-tien-giang",
+    "category": "Biệt Thự & Nhà Phố",
+    "location": "Tiền Giang",
+    "completionDate": "Năm 2024",
+    "year": "2024",
+    "client": "Nhà gỗ Tiền Giang",
+    "sortOrder": 7
+  },
+  "photos": {
+    "image": "/assets/projects/nha-go-tien-giang-01.jpg",
+    "images": [
+      "/assets/projects/nha-go-tien-giang-01.jpg",
+      "/assets/projects/nha-go-tien-giang-02.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "4 camera 4MP · NVR 8 kênh · 3 điểm truy cập WiFi NEC",
+    "description": "Lắp đặt hệ thống camera và WiFi cho nhà gỗ tại Tiền Giang. Cấu hình gồm 4 camera 4MP, đầu ghi NVR 8 kênh, ổ cứng 1TB, một switch PoE 4 cổng và ba điểm truy cập WiFi NEC nội địa Nhật."
+  },
+  "equipment": {
+    "technologies": [
+      "4 camera 4MP",
+      "NVR 8 kênh",
+      "Ổ cứng 1TB",
+      "Switch PoE 4 cổng",
+      "3 AP WiFi NEC"
+    ],
+    "highlights": [
+      "Kết hợp hệ thống camera và WiFi",
+      "Ba AP WiFi NEC nội địa Nhật"
+    ]
+  }
+}

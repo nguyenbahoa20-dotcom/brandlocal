@@ -1,0 +1,47 @@
+{
+  "title": "Hệ Thống Camera Và WiFi Hội Trường Hà Tiên",
+  "details": {
+    "id": "prj-hoi-truong-ha-tien",
+    "category": "Doanh Nghiệp & Văn Phòng",
+    "location": "Hà Tiên",
+    "completionDate": "Năm 2024",
+    "year": "2024",
+    "client": "Hội trường Hà Tiên",
+    "sortOrder": 6
+  },
+  "photos": {
+    "image": "/assets/projects/dsc_0490.jpg",
+    "images": [
+      "/assets/projects/hoi-truong-ha-tien-01.jpg",
+      "/assets/projects/hoi-truong-ha-tien-02.jpg",
+      "/assets/projects/hoi-truong-ha-tien-03.jpg",
+      "/assets/projects/dsc_0490.jpg",
+      "/assets/projects/dsc_0482.jpg",
+      "/assets/projects/dsc_0487.jpg",
+      "/assets/projects/dsc_0532.jpg",
+      "/assets/projects/dsc_0550.jpg",
+      "/assets/projects/dsc_0590.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "32 camera 4MP · NVR 32 kênh · 4 Aruba Instant On AP · khoảng 1.500 m cáp",
+    "description": "Thi công hệ thống camera và WiFi cho hội trường tại Hà Tiên. Hệ thống gồm 32 camera 4MP, đầu ghi NVR 32 kênh, ổ cứng 8TB, hai switch PoE 16 cổng, bốn Aruba Instant On AP, một switch PoE Aruba, hai tủ rack treo 8U và khoảng 1.500 m cáp."
+  },
+  "equipment": {
+    "technologies": [
+      "32 camera 4MP",
+      "NVR 32 kênh",
+      "Ổ cứng 8TB",
+      "2 switch PoE 16 cổng",
+      "4 Aruba Instant On AP",
+      "Switch PoE Aruba",
+      "2 tủ rack treo 8U",
+      "Khoảng 1.500 m cáp"
+    ],
+    "highlights": [
+      "32 camera 4MP",
+      "Kết hợp camera, thiết bị mạng và WiFi Aruba Instant On",
+      "Hai tủ rack treo 8U và khoảng 1.500 m cáp"
+    ]
+  }
+}

@@ -3,7 +3,7 @@
 
 Website thương hiệu cá nhân **HOANET** (Chuyên gia Kỹ thuật CCTV & Hạ tầng mạng) đã được nâng cấp toàn diện sang mô hình **Git-backed CMS** chuyên nghiệp:
 * Toàn bộ thao tác thêm, sửa, xóa dự án và tải ảnh album sẽ được **commit trực tiếp vào repository GitHub `nguyenbahoa20-dotcom/brandlocal` nhánh `main`**.
-* Website phía người dùng (frontend) đọc dữ liệu trực tiếp từ tệp `public/content/projects.json` và ảnh từ `raw.githubusercontent.com`.
+* Mỗi công trình được CMS lưu thành một hồ sơ JSON riêng trong `public/content/project-records/`; GitHub Actions tự tổng hợp thành `public/content/projects.json` để website đọc.
 * **Nội dung mới và ảnh mới sẽ hiển thị ngay sau khi commit mà KHÔNG cần AI Studio phải build lại mã nguồn.**
 * **Không lưu trữ dữ liệu bằng LocalStorage**, không lưu ảnh dạng data URL tạm bợ, và **tuyệt đối không nhúng token/PAT/secret vào mã nguồn frontend**.
 
@@ -39,25 +39,20 @@ backend:
 
 1. Truy cập đường dẫn điểm vào CMS: **`https://tên-miền-của-bạn/admin/index.html`** (hoặc bấm nút **CMS** ở góc phải Header / chân trang Footer).
    * *Lưu ý: Luôn truy cập qua `/admin/index.html` để nạp trực tiếp giao diện Decap CMS, tránh bị SPA router của website chuyển hướng.*
-2. Bấm nút **Login with GitHub** để đăng nhập qua tài khoản GitHub đã được phân quyền quản trị repo.
-3. Trong giao diện CMS:
-   * Chọn mục **Dự Án Công Trình** -> **Danh Sách Dự Án Công Trình**.
-   * Bạn sẽ thấy danh sách công trình hiện có được đọc từ `public/content/projects.json`.
-   * **Thêm dự án mới**: Bấm **Add projects**, điền đầy đủ các trường:
-     * *ID*: Mã định danh viết liền không dấu (VD: `prj-cong-trinh-moi`).
-     * *Tên công trình*: VD: *Hạ Tầng Mạng & Camera Tòa Nhà Văn Phòng ABC*.
-     * *Danh mục*: Chọn danh mục phù hợp.
-     * *Ảnh đại diện chính*: Tải ảnh từ máy tính lên. Ảnh sẽ tự động được lưu vào thư mục `public/assets/projects/`.
-     * *Album hình ảnh*: Thêm nhiều ảnh chụp thực tế tại công trình.
-     * *Quy mô, Thời gian hoàn thành, Địa điểm, Khách hàng, Mô tả, Công nghệ sử dụng, Điểm nổi bật, Nổi bật (isFeatured)*.
-   * **Chỉnh sửa / Xóa**: Bấm vào bất kỳ dự án nào để chỉnh sửa thông tin hoặc bấm xóa.
-4. Bấm **Publish** (Xuất bản) ở góc trên. Decap CMS sẽ tự động tạo một commit mới lên nhánh `main` của repository GitHub `nguyenbahoa20-dotcom/brandlocal`.
+2. Bấm nút **Login with Turbo** để đăng nhập qua tài khoản GitHub đã được phân quyền quản trị repo.
+3. Mở mục **Công trình & dự án**. Mỗi công trình hiện là một hồ sơ riêng, vì vậy bạn có thể tìm và mở riêng dự án cần sửa.
+4. Bấm **Thêm công trình** để tạo dự án mới, hoặc mở một hồ sơ hiện có để chỉnh sửa. Biểu mẫu được chia thành bốn phần:
+   * **Thông tin cơ bản**: tên, danh mục, địa điểm, thời gian, khách hàng, thứ tự hiển thị và trạng thái nổi bật. Có thể để trống mã công trình để hệ thống tự tạo.
+   * **Hình ảnh công trình**: chọn một ảnh bìa và thêm ảnh vào album. Có thể thêm nhiều ảnh, mỗi lần chọn một ảnh.
+   * **Giới thiệu giải pháp**: quy mô hệ thống và nội dung giới thiệu.
+   * **Thiết bị & điểm nổi bật**: thêm hoặc sửa danh sách thiết bị và các điểm nổi bật.
+5. Bấm **Publish** (Xuất bản). Decap lưu hồ sơ và ảnh lên nhánh `main`; GitHub Actions sẽ tự cập nhật tệp tổng hợp cho website.
 
 ---
 
 ## 🔄 3. CƠ CHẾ HIỂN THỊ DỮ LIỆU & ẢNH TRÊN WEBSITE
 
-* **Dữ liệu JSON**: Giao diện website tự động gọi tệp `public/content/projects.json` trực tiếp từ địa chỉ:
+* **Dữ liệu hồ sơ**: CMS chỉnh từng hồ sơ trong `public/content/project-records/`. GitHub Actions chạy `scripts/build-project-index.mjs` để cập nhật tệp tổng hợp `public/content/projects.json`, giao diện website đọc tệp này từ địa chỉ:
   ```text
   https://raw.githubusercontent.com/nguyenbahoa20-dotcom/brandlocal/main/public/content/projects.json?t=<timestamp>
   ```

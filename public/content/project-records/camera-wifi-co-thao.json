@@ -1,0 +1,32 @@
+{
+  "title": "Lắp Đặt 5 Camera WiFi Imou 4MP Cho Công Trình Nhà Phố",
+  "details": {
+    "id": "prj-camera-wifi-co-thao",
+    "category": "Biệt Thự & Nhà Phố",
+    "location": "Phú Nhuận, TP.HCM",
+    "completionDate": "Năm 2024",
+    "year": "2024",
+    "client": "Khách hàng nhà phố",
+    "sortOrder": 3
+  },
+  "photos": {
+    "image": "/assets/projects/camera-wifi-nha-pho-01.jpg",
+    "images": [
+      "/assets/projects/camera-wifi-nha-pho-01.jpg",
+      "/assets/projects/camera-wifi-nha-pho-02.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "5 camera WiFi Imou 4MP",
+    "description": "Triển khai gói 5 camera WiFi Imou độ phân giải 4MP cho công trình nhà phố của cô Thảo. Phương án sử dụng camera WiFi giúp đáp ứng nhu cầu giám sát với cấu hình phù hợp quy mô công trình."
+  },
+  "equipment": {
+    "technologies": [
+      "Camera WiFi Imou 4MP"
+    ],
+    "highlights": [
+      "05 camera WiFi Imou độ phân giải 4MP",
+      "Ghi hình tại các vị trí trong và ngoài công trình"
+    ]
+  }
+}

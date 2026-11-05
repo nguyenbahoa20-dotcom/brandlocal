@@ -1,0 +1,33 @@
+{
+  "title": "Nâng Cấp NVR 64 Kênh Và Lưu Trữ 60TB Cho Việt Tiến",
+  "details": {
+    "id": "prj-viettien-nvr-64",
+    "category": "Doanh Nghiệp & Văn Phòng",
+    "location": "TP.HCM",
+    "completionDate": "Năm 2024",
+    "year": "2024",
+    "client": "Tổng Công ty Việt Tiến",
+    "sortOrder": 8
+  },
+  "photos": {
+    "image": "/assets/projects/nang-cap-viet-tien-01.jpg",
+    "images": [
+      "/assets/projects/nang-cap-viet-tien-01.jpg",
+      "/assets/projects/nang-cap-viet-tien-03.jpg"
+    ]
+  },
+  "solution": {
+    "scale": "NVR 64 kênh · Tổng dung lượng lưu trữ 60TB",
+    "description": "Nâng cấp hệ thống ghi hình tại Tổng Công ty Việt Tiến với đầu ghi NVR 64 kênh và tổng dung lượng lưu trữ 60TB."
+  },
+  "equipment": {
+    "technologies": [
+      "Đầu ghi NVR 64 kênh",
+      "Lưu trữ 60TB"
+    ],
+    "highlights": [
+      "Nâng cấp NVR 64 kênh",
+      "Tổng dung lượng lưu trữ 60TB"
+    ]
+  }
+}
