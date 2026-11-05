@@ -50,6 +50,67 @@
   background-size: 28px 28px;
 }
 
+/* Project cards reveal softly as they enter view; cards stay visible without JS. */
+#projects.project-reveal-ready .project-card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition-property: opacity, transform, border-color, box-shadow;
+  transition-duration: 480ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#projects.project-reveal-ready .project-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  #projects .project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 18px 40px -22px rgba(6, 182, 212, 0.38);
+  }
+
+  #projects .project-card:hover .project-card-image {
+    transform: scale(1.03);
+  }
+
+  #projects .project-card:hover .project-card-scrim {
+    opacity: 0.6;
+  }
+
+  #projects .project-card:hover .project-card-title,
+  #projects .project-card:hover .project-card-arrow {
+    color: #67e8f9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #projects.project-reveal-ready .project-card,
+  #projects.project-reveal-ready .project-card.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  #projects .project-card:hover,
+  #projects .project-card:hover .project-card-image {
+    transform: none;
+  }
+
+  #projects .project-card,
+  #projects .project-card-image,
+  #projects .project-card-scrim,
+  #projects .project-card-title,
+  #projects .project-card-arrow {
+    transition: none;
+  }
+}
+
 /* Light theme overrides for clean, high-contrast readability */
 html[data-theme="light"] {
   color-scheme: light;
@@ -210,4 +271,5 @@ html[data-theme="light"] ::-webkit-scrollbar-track {
 html[data-theme="light"] ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
 }
+
 
