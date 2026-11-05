@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Camera, ArrowUpRight, MapPin, Sparkles, RotateCw, ExternalLink } from 'lucide-react';
 import { projects as defaultProjects, projectCategories, ProjectItem } from '../config/profile';
 import { ProjectModal } from './ProjectModal';
@@ -9,6 +9,7 @@ interface ProjectGalleryProps {
 }
 
 export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject }) => {
+  const galleryRef = useRef<HTMLElement>(null);
   const [projectsList, setProjectsList] = useState<ProjectItem[]>(() => normalizeProjects(defaultProjects));
   const [selectedCategory, setSelectedCategory] = useState<string>('Tất Cả');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
@@ -31,13 +32,40 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
     loadProjects();
   }, []);
 
+  useEffect(() => {
+    const gallery = galleryRef.current;
+    if (!gallery || !('IntersectionObserver' in window)) return;
+
+    const cards = gallery.querySelectorAll<HTMLElement>('[data-project-reveal]');
+    gallery.classList.add('project-reveal-ready');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -24px 0px',
+    });
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      observer.disconnect();
+      gallery.classList.remove('project-reveal-ready');
+    };
+  }, [projectsList, selectedCategory]);
+
   // Lọc dự án theo danh mục người dùng chọn
   const filteredProjects = selectedCategory === 'Tất Cả'
     ? projectsList
     : projectsList.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-16 lg:py-24 bg-[#080d1a] relative border-t border-slate-800/80">
+    <section id="projects" ref={galleryRef} className="py-16 lg:py-24 bg-[#080d1a] relative border-t border-slate-800/80">
       {/* Background radial highlight */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/5 blur-[100px] pointer-events-none rounded-full" />
 
@@ -131,7 +159,9 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
             return (
               <div
                 key={project.id || `project-${pIdx}`}
-                className="group rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 flex flex-col overflow-hidden hover:shadow-xl"
+                data-project-reveal
+                style={{ transitionDelay: `${Math.min(pIdx, 5) * 55}ms` }}
+                className="project-card rounded-2xl bg-slate-900/70 border border-slate-800 transition-all duration-300 flex flex-col overflow-hidden"
               >
                 {/* Project Image Frame & Badges */}
                 <div 
@@ -141,7 +171,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
                   <img
                     src={rawCover}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="project-card-image w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                     loading="lazy"
                     onError={(e) => {
@@ -152,7 +182,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
                   />
 
                   {/* Gradient Scrim */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                  <div className="project-card-scrim absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 transition-opacity duration-300" />
 
                   {/* Top-Left: Category */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md border border-slate-800 text-cyan-300">
@@ -186,7 +216,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
                   <div className="space-y-2">
                     <h3 
                       onClick={() => setActiveModalProject(project)}
-                      className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug cursor-pointer"
+                      className="project-card-title text-base sm:text-lg font-bold text-white transition-colors line-clamp-2 leading-snug cursor-pointer"
                     >
                       {project.title}
                     </h3>
@@ -229,7 +259,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
                     >
                       <Camera className="w-3.5 h-3.5 text-cyan-400" />
                       <span>Xem Album &amp; Chi Tiết</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
+                      <ArrowUpRight className="project-card-arrow w-3.5 h-3.5 text-slate-400 transition-colors" />
                     </button>
                   </div>
                 </div>
@@ -258,3 +288,4 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onConsultProject
     </section>
   );
 };
+
