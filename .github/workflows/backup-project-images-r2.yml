@@ -1,0 +1,48 @@
+name: Back up project images to Cloudflare R2
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/assets/projects/**'
+      - '.github/workflows/backup-project-images-r2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: project-image-r2-backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install AWS CLI for the R2 S3-compatible API
+        run: python -m pip install --user awscli
+
+      - name: Copy project images to the private R2 backup bucket
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          R2_ACCOUNT_ID: ${{ vars.R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$AWS_ACCESS_KEY_ID" || -z "$AWS_SECRET_ACCESS_KEY" || -z "$R2_ACCOUNT_ID" || -z "$R2_BUCKET" ]]; then
+            echo "Missing R2 GitHub Actions secrets or variables. See cloudflare/R2-BACKUP.md."
+            exit 1
+          fi
+          aws s3 sync public/assets/projects "s3://${R2_BUCKET}/projects" \
+            --endpoint-url "https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com" \
+            --no-progress \
+            --only-show-errors
