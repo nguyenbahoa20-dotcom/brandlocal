@@ -1,0 +1,20 @@
+name = "hoanet-gallery-upload"
+main = "gallery-upload-worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_GITHUB_USERNAME = ""
+GITHUB_APP_ID = ""
+GITHUB_INSTALLATION_ID = ""
+GITHUB_OAUTH_CLIENT_ID = ""
+
+[assets]
+directory = "./site"
+binding = "ASSETS"
+run_worker_first = true
+
+# Set secrets with `npx wrangler secret put` (never commit the values):
+# GITHUB_APP_PRIVATE_KEY
+# GITHUB_OAUTH_CLIENT_SECRET
+# SESSION_SECRET
+

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob:; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'" />
+  <title>Tải ảnh công trình | HOANET</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 Inter, system-ui, sans-serif; color: #17212b; background: #f3f6f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px 16px; }
+    main { max-width: 760px; margin: 0 auto; padding: 28px; border: 1px solid #dce4e9; border-radius: 18px; background: white; box-shadow: 0 16px 45px #17344c12; }
+    h1 { margin: 0 0 6px; font-size: clamp(24px, 4vw, 32px); letter-spacing: -.03em; }
+    p { color: #5d6b75; }
+    .top { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+    a, button { color: #006b84; }
+    .back { white-space: nowrap; }
+    label { display: block; margin: 22px 0 7px; font-weight: 650; }
+    select, input[type=url] { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #cbd6dc; border-radius: 9px; font: inherit; background: white; }
+    .drop { display: grid; min-height: 170px; place-items: center; margin-top: 8px; padding: 22px; border: 2px dashed #9eb5c0; border-radius: 12px; text-align: center; cursor: pointer; background: #f7fafb; }
+    .drop:hover, .drop:focus-within { border-color: #0085a3; background: #f0fafc; }
+    .drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+    .drop strong { color: #17212b; }
+    .hint { margin: 8px 0 0; font-size: 13px; }
+    .preview { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-top: 14px; }
+    .preview figure { position: relative; margin: 0; overflow: hidden; border-radius: 9px; aspect-ratio: 1; background: #e9eff2; }
+    .preview img { width: 100%; height: 100%; object-fit: cover; }
+    .preview figcaption { position: absolute; inset: auto 0 0; overflow: hidden; padding: 16px 6px 5px; color: white; background: linear-gradient(transparent,#000a); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .option { display: flex; align-items: center; gap: 9px; margin: 16px 0; font-weight: 500; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    button { min-height: 44px; padding: 9px 16px; border: 0; border-radius: 9px; font: inherit; font-weight: 700; cursor: pointer; }
+    button.primary { color: white; background: #007e98; }
+    button.secondary { border: 1px solid #ccd8de; background: white; }
+    button:disabled { cursor: wait; opacity: .55; }
+    .status { min-height: 26px; margin: 14px 0 0; }
+    .status.error { color: #b42318; }
+    .status.success { color: #087443; }
+    .small { font-size: 13px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 540px) { body { padding: 12px; } main { padding: 20px 16px; } .top { display: block; } .back { display: inline-block; margin-top: 6px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="top">
+      <div><h1>Tải ảnh công trình</h1><p>Chọn nhiều ảnh một lần. Ảnh và album sẽ được lưu chung vào GitHub.</p></div>
+      <a class="back" href="https://hoanet-hcm.ai.studio/">← Về website</a>
+    </div>
+
+    <section id="login" hidden>
+      <p>Đăng nhập GitHub được cấp quyền để xác nhận bạn là người quản lý nội dung.</p>
+      <button id="loginButton" class="primary" type="button">Đăng nhập GitHub</button>
+      <p id="loginStatus" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <form id="uploadForm" hidden>
+      <label for="project">Công trình</label>
+      <select id="project" required><option value="">Đang tải danh sách…</option></select>
+      <label for="files">Ảnh muốn thêm vào album</label>
+      <label class="drop" for="files"><span><strong>Chọn nhiều ảnh</strong><br />hoặc kéo thả ảnh vào đây</span><input id="files" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple required /></label>
+      <p class="hint">Tối đa 20 ảnh, tổng dung lượng không quá 50 MB. Định dạng JPG, PNG, WebP hoặc GIF.</p>
+      <div id="preview" class="preview" aria-live="polite"></div>
+      <label class="option"><input id="setCover" type="checkbox" /> Dùng ảnh đầu tiên làm ảnh bìa công trình</label>
+      <div class="actions"><button id="uploadButton" class="primary" type="submit">Tải ảnh và cập nhật album</button><button id="logoutButton" class="secondary" type="button">Đăng xuất</button></div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p class="small">Mỗi lần tải tạo một commit GitHub chứa toàn bộ ảnh mới và thay đổi album của công trình.</p>
+    </form>
+  </main>
+  <script src="/gallery-upload.js" defer></script>
+</body>
+</html>
+
